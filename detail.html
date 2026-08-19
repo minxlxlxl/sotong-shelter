@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>소통쉼터 상세</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="detail-page">
+
+
+<!-- =========================
+     상세페이지 HEADER
+========================= -->
+
+<header class="detail-header">
+
+    <div class="detail-header-inner">
+
+
+        <a
+            href="index.html"
+            class="detail-logo"
+        >
+            <span class="back-arrow">
+                ‹
+            </span>
+
+            <span class="detail-title-wrap">
+
+                <span class="detail-eyebrow">
+                    COMMUNICATION SHELTER
+                </span>
+
+                <span id="detailTitle">
+                    소통쉼터
+                </span>
+
+                <span class="detail-subtitle">
+                    지역 주민과 함께 소통하는 열린 공간
+                </span>
+
+            </span>
+        </a>
+
+        <div class="detail-region-select">
+
+            <label for="regionSelect">
+                지역
+            </label>
+
+            <select id="regionSelect">
+
+                <option value="평창">
+                    평창
+                </option>
+
+                <option value="태백">
+                    태백
+                </option>
+
+                <option value="홍천">
+                    홍천
+                </option>
+
+                <option value="괴산">
+                    괴산
+                </option>
+
+                <option value="전주">
+                    전주
+                </option>
+
+                <option value="고창">
+                    고창
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <nav class="detail-nav">
+
+            <button
+                class="detail-nav-button active"
+                data-detail="status"
+            >
+                사업현황
+            </button>
+
+
+            <button
+                class="detail-nav-button"
+                data-detail="operation"
+            >
+                운영안내
+            </button>
+
+
+            <button
+                class="detail-nav-button"
+                data-detail="facility"
+            >
+                시설안내
+            </button>
+
+
+            <button
+                class="detail-nav-button"
+                data-detail="reservation"
+            >
+                상담예약
+            </button>
+
+
+            <button
+                class="detail-nav-button"
+                data-detail="suggestion"
+            >
+                주민제안·경청
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     상세페이지 MAIN
+========================= -->
+
+<main class="detail-main">
+
+
+    <!-- =========================
+         상단 공통 영역
+    ========================== -->
+
+    <section class="detail-overview">
+
+
+        <!-- 지도 -->
+
+        <div class="detail-map-area">
+
+            <div id="detailMap"></div>
+
+        </div>
+
+
+        <!-- 기본 정보 -->
+
+        <div class="detail-overview-text">
+
+            <h2 id="overviewTitle">
+                사업 개요
+            </h2>
+
+
+            <p id="overviewText">
+                소통쉼터 사업 정보를 안내합니다.
+            </p>
+
+
+            <h2>
+                관할 범위
+            </h2>
+
+
+            <p id="jurisdictionText">
+                관할 지역 정보를 안내합니다.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         아래 변경 영역
+    ========================== -->
+
+    <section class="detail-content">
+
+
+        <!-- 사업현황 -->
+
+        <div
+            class="detail-panel active"
+            id="status"
+        >
+
+            <div class="status-header">
+
+                <p class="status-subtitle">
+                    PROJECT STATUS
+                </p>
+
+                <h2>
+                    사업현황
+                </h2>
+
+                <p>
+                    지역별 소통쉼터의 사업 개요와
+                    주요 진행사항을 확인할 수 있습니다.
+                </p>
+
+            </div>
+
+
+            <div class="status-grid">
+
+
+                <!-- 사업 개요 -->
+
+                <div class="status-card large">
+
+                    <p class="status-label">
+                        사업 개요
+                    </p>
+
+                    <h3 id="statusOverviewTitle">
+                        소통쉼터 조성 사업
+                    </h3>
+
+                    <p id="statusOverviewText">
+                        지역 주민과의 소통을 강화하고
+                        편안한 상담 및 휴식 공간을 제공하기 위한 사업입니다.
+                    </p>
+
+                </div>
+
+
+                <!-- 현재 단계 -->
+
+                <div class="status-card">
+
+                    <div class="status-icon">
+                        ✓
+                    </div>
+
+                    <p class="status-label">
+                        현재 단계
+                    </p>
+
+                    <h3 id="statusPhase">
+                        운영 중
+                    </h3>
+
+                </div>
+
+
+                <!-- 관할 지역 -->
+
+                <div class="status-card">
+
+                    <div class="status-icon">
+                        ◎
+                    </div>
+
+                    <p class="status-label">
+                        관할 지역
+                    </p>
+
+                    <h3 id="statusArea">
+                        지역 정보
+                    </h3>
+
+                </div>
+
+
+                <!-- 개소일 -->
+
+                <div class="status-card">
+
+                    <div class="status-icon">
+                        ◷
+                    </div>
+
+                    <p class="status-label">
+                        개소일
+                    </p>
+
+                    <h3 id="statusOpenDate">
+                        확인 중
+                    </h3>
+
+                </div>
+
+
+                <!-- 운영기관 -->
+
+                <div class="status-card">
+
+                    <div class="status-icon">
+                        ◼
+                    </div>
+
+                    <p class="status-label">
+                        운영기관
+                    </p>
+
+                    <h3 id="statusOperator">
+                        운영기관 확인 중
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- 주요 일정 -->
+
+            <div class="status-section">
+
+                <h3>
+                    주요 일정
+                </h3>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+
+                        <span class="timeline-dot"></span>
+
+                        <div>
+                            <strong>
+                                사업 준비
+                            </strong>
+
+                            <p>
+                                지역 현황 조사 및 주민 의견 수렴
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <span class="timeline-dot"></span>
+
+                        <div>
+                            <strong>
+                                공간 조성
+                            </strong>
+
+                            <p>
+                                상담·소통·휴식 공간 조성
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <span class="timeline-dot"></span>
+
+                        <div>
+                            <strong>
+                                운영 시작
+                            </strong>
+
+                            <p>
+                                주민 상담 및 소통 프로그램 운영
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 운영안내 -->
+
+        <div
+            class="detail-panel"
+            id="operation"
+        >
+
+            <h2>
+                운영안내
+            </h2>
+
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        ◷
+                    </div>
+
+                    <p class="info-label">
+                        운영시간
+                    </p>
+
+                    <h3 id="detailHours">
+                        운영시간 확인 중
+                    </h3>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        ◎
+                    </div>
+
+                    <p class="info-label">
+                        위치
+                    </p>
+
+                    <h3 id="detailAddress">
+                        주소 정보
+                    </h3>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        ☎
+                    </div>
+
+                    <p class="info-label">
+                        문의
+                    </p>
+
+                    <h3 id="detailPhone">
+                        전화번호 확인 중
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="route-box">
+
+                <div>
+
+                    <div class="route-icon">
+                        ➜
+                    </div>
+
+                    <p class="info-label">
+                        찾아오는 길
+                    </p>
+
+                    <h3>
+                        소통쉼터 방문 안내
+                    </h3>
+
+                    <p id="routeText">
+                        방문 경로 정보가 표시됩니다.
+                    </p>
+
+                </div>
+
+                <button
+                    class="map-link-button"
+                    id="mapLinkButton"
+                >
+                    지도에서 보기
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 시설안내 -->
+
+        <div
+            class="detail-panel"
+            id="facility"
+        >
+
+            <div class="facility-header">
+
+                <p class="facility-subtitle">
+                    FACILITY
+                </p>
+
+                <h2>
+                    시설안내
+                </h2>
+
+                <p class="facility-description">
+                    소통쉼터에서 이용할 수 있는 공간을 안내합니다.
+                </p>
+
+            </div>
+
+
+            <div class="facility-grid">
+
+
+                <!-- 상담실 -->
+
+                <article class="facility-card">
+
+                    <div class="facility-image">
+                        상담실 사진
+                    </div>
+
+                    <div class="facility-info">
+
+                        <span class="facility-number">
+                            01
+                        </span>
+
+                        <h3>
+                            상담실
+                        </h3>
+
+                        <p>
+                            주민 상담과 의견 청취를 위한
+                            독립적인 상담 공간입니다.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 주민 소통 공간 -->
+
+                <article class="facility-card">
+
+                    <div class="facility-image">
+                        소통공간 사진
+                    </div>
+
+                    <div class="facility-info">
+
+                        <span class="facility-number">
+                            02
+                        </span>
+
+                        <h3>
+                            주민 소통 공간
+                        </h3>
+
+                        <p>
+                            지역 주민들이 편하게 모여
+                            이야기를 나눌 수 있는 공간입니다.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 상담 / 안내 공간 -->
+
+                <article class="facility-card">
+
+                    <div class="facility-image">
+                        안내공간 사진
+                    </div>
+
+                    <div class="facility-info">
+
+                        <span class="facility-number">
+                            03
+                        </span>
+
+                        <h3>
+                            상담·안내 공간
+                        </h3>
+
+                        <p>
+                            사업 관련 문의와 각종 안내를
+                            받을 수 있는 공간입니다.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 휴식 공간 -->
+
+                <article class="facility-card">
+
+                    <div class="facility-image">
+                        휴식공간 사진
+                    </div>
+
+                    <div class="facility-info">
+
+                        <span class="facility-number">
+                            04
+                        </span>
+
+                        <h3>
+                            휴식 공간
+                        </h3>
+
+                        <p>
+                            방문객이 자유롭게 머물며
+                            쉴 수 있는 편안한 공간입니다.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 상담예약 -->
+
+        <div
+            class="detail-panel"
+            id="reservation"
+        >
+
+            <div class="reservation-header">
+
+                <p class="reservation-subtitle">
+                    RESERVATION
+                </p>
+
+                <h2>
+                    상담예약
+                </h2>
+
+                <p>
+                    원하는 날짜와 시간을 선택해 상담을 예약할 수 있습니다.
+                </p>
+
+            </div>
+
+
+            <div class="reservation-layout">
+
+
+                <!-- 날짜 선택 -->
+
+                <div class="reservation-box">
+
+                    <h3>
+                        1. 날짜 선택
+                    </h3>
+
+                    <input
+                        type="date"
+                        id="reservationDate"
+                    >
+
+                </div>
+
+
+                <!-- 시간 선택 -->
+
+                <div class="reservation-box">
+
+                    <h3>
+                        2. 시간 선택
+                    </h3>
+
+                    <div class="time-buttons">
+
+                        <button
+                            class="time-button"
+                            data-time="09:00"
+                        >
+                            09:00
+                        </button>
+
+                        <button
+                            class="time-button"
+                            data-time="10:00"
+                        >
+                            10:00
+                        </button>
+
+                        <button
+                            class="time-button"
+                            data-time="11:00"
+                        >
+                            11:00
+                        </button>
+
+                        <button
+                            class="time-button"
+                            data-time="13:00"
+                        >
+                            13:00
+                        </button>
+
+                        <button
+                            class="time-button"
+                            data-time="14:00"
+                        >
+                            14:00
+                        </button>
+
+                        <button
+                            class="time-button"
+                            data-time="15:00"
+                        >
+                            15:00
+                        </button>
+
+                        <button
+                            class="time-button"
+                            data-time="16:00"
+                        >
+                            16:00
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 예약 확인 -->
+
+                <div class="reservation-box reservation-summary">
+
+                    <h3>
+                        3. 예약 확인
+                    </h3>
+
+                    <p>
+                        날짜 :
+                        <strong id="selectedDateText">
+                            선택 안됨
+                        </strong>
+                    </p>
+
+                    <p>
+                        시간 :
+                        <strong id="selectedTimeText">
+                            선택 안됨
+                        </strong>
+                    </p>
+
+                    <button
+                        class="reservation-submit"
+                        id="reservationSubmit"
+                    >
+                        상담 예약하기
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 주민제안 / 경청 -->
+
+        <div
+            class="detail-panel"
+            id="suggestion"
+        >
+
+            <div class="suggestion-header">
+
+                <p class="suggestion-subtitle">
+                    LISTENING
+                </p>
+
+                <h2>
+                    주민제안·경청
+                </h2>
+
+                <p>
+                    지역 주민의 의견과 제안을 듣고
+                    더 나은 소통쉼터를 만들어갑니다.
+                </p>
+
+            </div>
+
+
+            <div class="suggestion-layout">
+
+
+                <!-- 안내 영역 -->
+
+                <div class="suggestion-guide">
+
+                    <h3>
+                        이용 안내
+                    </h3>
+
+                    <p>
+                        소통쉼터 운영과 관련된 제안,
+                        불편사항, 개선 의견 등을 남길 수 있습니다.
+                    </p>
+
+                    <ul>
+                        <li>
+                            작성한 내용은 운영 검토 후 확인됩니다.
+                        </li>
+
+                        <li>
+                            개인정보가 포함된 내용은 작성에 주의해주세요.
+                        </li>
+
+                        <li>
+                            실제 서비스에서는 본인인증 기능을 추가할 수 있습니다.
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <!-- 제안 작성 -->
+
+                <form
+                    class="suggestion-form"
+                    id="suggestionForm"
+                >
+
+                    <div class="form-group">
+
+                        <label for="suggestionName">
+                            이름
+                        </label>
+
+                        <input
+                            type="text"
+                            id="suggestionName"
+                            placeholder="이름을 입력해주세요"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="suggestionPhone">
+                            연락처
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="suggestionPhone"
+                            placeholder="010-0000-0000"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="suggestionCategory">
+                            제안 유형
+                        </label>
+
+                        <select id="suggestionCategory">
+
+                            <option value="">
+                                선택해주세요
+                            </option>
+
+                            <option value="운영">
+                                운영 관련
+                            </option>
+
+                            <option value="시설">
+                                시설 관련
+                            </option>
+
+                            <option value="상담">
+                                상담 관련
+                            </option>
+
+                            <option value="기타">
+                                기타
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="suggestionTitle">
+                            제목
+                        </label>
+
+                        <input
+                            type="text"
+                            id="suggestionTitle"
+                            placeholder="제안 제목을 입력해주세요"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="suggestionContent">
+                            제안 내용
+                        </label>
+
+                        <textarea
+                            id="suggestionContent"
+                            rows="8"
+                            placeholder="제안 내용을 입력해주세요"
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="suggestion-submit-area">
+
+                        <button
+                            type="submit"
+                            class="suggestion-submit"
+                        >
+                            제안 등록하기
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-left">
+
+            <h2>
+                소통쉼터
+            </h2>
+
+            <p>
+                주민과 가까이에서 소통하고,
+                지역과 함께 더 나은 내일을 만들어갑니다.
+            </p>
+
+        </div>
+
+
+        <div class="footer-right">
+
+            <div class="footer-menu">
+
+                <a href="index.html#about">
+                    쉼터 소개
+                </a>
+
+                <a href="index.html#service">
+                    서비스 안내
+                </a>
+
+                <a href="index.html#notice">
+                    공지사항
+                </a>
+
+                <a href="index.html#related">
+                    관련사이트
+                </a>
+
+            </div>
+
+
+            <p class="footer-copy">
+                © 2026 소통쉼터. All rights reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<button
+    class="top-button"
+    id="topButton"
+    aria-label="맨 위로 이동"
+>
+    ↑
+    <span>TOP</span>
+</button>
+
+
+
+<script
+    src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=df455211ce0ad9df1e1cfd5d2ec8507c&libraries=services">
+</script>
+
+<script src="detail.js"></script>
+
+
+</body>
+
+</html>
