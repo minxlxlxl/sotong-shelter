@@ -4712,6 +4712,14 @@ a {
 
 }
 
+@media (min-width: 1201px) {
+    .menu-button,
+    .side-menu,
+    .menu-overlay {
+        display: none !important;
+    }
+}
+
 
 /* =========================
    메뉴 이동 시
