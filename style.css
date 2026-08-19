@@ -3918,6 +3918,7 @@ a {
     max-width: 1400px;
 
     margin: 0 auto;
+
 }
 
 
@@ -3947,6 +3948,8 @@ a {
         repeat(2, 1fr);
 
     gap: 20px;
+
+    min-width: 0;
 }
 
 
@@ -3973,6 +3976,8 @@ a {
         transform 0.25s ease,
         border-color 0.25s ease,
         box-shadow 0.25s ease;
+
+    min-width: 0;
 }
 
 
