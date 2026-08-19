@@ -449,6 +449,9 @@ a {
 ========================= */
 
 .menu-button {
+
+    display: none;
+    
     width: 48px;
     height: 48px;
 
@@ -471,6 +474,7 @@ a {
     cursor: pointer;
 
     transition: 0.2s;
+
 }
 
 .menu-button:hover {
@@ -530,7 +534,7 @@ a {
 
     width: 92%;
     max-width: 1400px;
-    height: 520px;
+    height: clamp(400px, 37vw, 520px);
 
     margin: 0 auto;
 
@@ -4703,6 +4707,10 @@ a {
 
     .desktop-sidebar {
         display: none;
+    }
+
+    .menu-button {
+        display: flex;
     }
 
 }
