@@ -47,7 +47,8 @@ body {
         margin-left: 280px;
     }
 
-    body:not(.detail-page) .header {
+    body:not(.detail-page) .header,
+    body:not(.detail-page) .footer {
         width: calc(100% - 280px);
     }
 
