@@ -39,22 +39,6 @@ body {
     color: #222222;
 }
 
-@media (min-width: 1201px) {
-
-    body:not(.detail-page) .header,
-    body:not(.detail-page) main,
-    body:not(.detail-page) .footer {
-        margin-left: 0;
-        margin-right: 320px;
-    }
-
-    body:not(.detail-page) .header,
-    body:not(.detail-page) .footer {
-        width: calc(100% - 320px);
-    }
-
-}
-
 button {
     font-family: inherit;
     border: none;
