@@ -45,12 +45,12 @@ body {
     body:not(.detail-page) main,
     body:not(.detail-page) .footer {
         margin-left: 0;
-        margin-right: 280px;
+        margin-right: 320px;
     }
 
     body:not(.detail-page) .header,
     body:not(.detail-page) .footer {
-        width: calc(100% - 280px);
+        width: calc(100% - 320px);
     }
 
 }
@@ -76,7 +76,7 @@ a {
     top: 0;
     right: 0;
 
-    width: 280px;
+    width: 320px;
     height: 100vh;
 
     z-index: 1200;
