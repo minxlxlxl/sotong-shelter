@@ -44,7 +44,8 @@ body {
     body:not(.detail-page) .header,
     body:not(.detail-page) main,
     body:not(.detail-page) .footer {
-        margin-left: 280px;
+        margin-left: 0;
+        margin-right: 280px;
     }
 
     body:not(.detail-page) .header,
@@ -73,7 +74,7 @@ a {
 .desktop-sidebar {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
 
     width: 280px;
     height: 100vh;
@@ -82,7 +83,7 @@ a {
 
     background: #ffffff;
 
-    border-right: 1px solid #e9eeee;
+    border-left: 1px solid #e8e8e8;
 
     overflow-y: auto;
 }
