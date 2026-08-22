@@ -72,19 +72,19 @@ a {
 
     border-left: 1px solid #e8e8e8;
 
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 
 .desktop-sidebar-inner {
-    padding: 38px 25px;
+    padding: 18px 20px;
 }
 
 
 /* 상단 로고 영역 */
 
 .desktop-sidebar-top {
-    padding: 0 8px 30px;
+    padding: 0 6px 16px;
 
     border-bottom: 1px solid #eeeeee;
 }
@@ -113,7 +113,7 @@ a {
 
     gap: 7px;
 
-    margin-top: 16px;
+    margin-top: 8px;
 
     padding: 7px 10px;
 
@@ -149,7 +149,7 @@ a {
 
     gap: 7px;
 
-    margin-top: 14px;
+    margin-top: 8px;
 }
 
 
@@ -190,14 +190,14 @@ a {
 /* 메뉴 전체 */
 
 .desktop-sidebar-menu {
-    margin-top: 15px;
+    margin-top: 6px;
 }
 
 
 /* 메뉴 그룹 */
 
 .desktop-menu-group {
-    padding: 22px 0;
+    padding: 9px 0;
 
     border-bottom: 1px solid #eeeeee;
 }
@@ -211,7 +211,7 @@ a {
 /* 쉼터 소개 / 서비스 안내 등 제목 */
 
 .desktop-menu-group h3 {
-    margin: 0 10px 10px;
+    margin: 0 8px 4px;
 
     color: #999;
 
@@ -229,8 +229,8 @@ a {
 
     display: block;
 
-    margin: 3px 0;
-    padding: 11px 14px;
+    margin: 0;
+    padding: 6px 10px;
 
     border-radius: 10px;
 
@@ -277,9 +277,8 @@ a {
 
     gap: 15px;
 
-    margin-top: 25px;
-
-    padding: 15px 17px;
+    margin-top: 6px;
+    padding: 10px 14px;
 
     border-radius: 12px;
 
@@ -5378,3 +5377,4 @@ a {
         font-size: 8px;
     }
 }
+
