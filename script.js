@@ -309,6 +309,34 @@ function changeRegion(regionName) {
 
     }
 
+    const mainProjectArea =
+        document.getElementById(
+            "mainProjectArea"
+        );
+
+    const mainProjectLink =
+        document.getElementById(
+            "mainProjectLink"
+        );
+
+
+    if (mainProjectArea) {
+
+        mainProjectArea.textContent =
+            regionName;
+
+    }
+
+
+    if (mainProjectLink) {
+
+        mainProjectLink.href =
+            "detail.html?region=" +
+            encodeURIComponent(regionName) +
+            "&tab=status";
+
+    }
+
 }
 
 

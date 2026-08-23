@@ -916,13 +916,14 @@
 
 
         <!-- =========================
-             지역 / 지도
+            지역 / 지도 + 주요 서비스
         ========================== -->
 
         <section class="region-section">
 
 
             <!-- 지역 선택 -->
+            <!-- 화면에서는 숨겨도 되지만 JS 연동 때문에 유지 -->
 
             <div class="region-tabs">
 
@@ -979,44 +980,276 @@
 
 
 
-            <!-- 지도 전체 박스 -->
+            <!-- =========================
+                왼쪽 지도 / 오른쪽 주요 서비스
+            ========================== -->
 
             <div class="map-container">
 
 
-                <!-- 지도 설명 -->
+                <!-- =========================
+                    왼쪽 : 지도
+                ========================== -->
 
-                <div class="map-header">
+                <div class="map-side">
 
-                    <div>
 
-                        <p class="map-label">
-                            PROJECT AREA
+                    <div class="map-header">
+
+                        <div>
+
+                            <p class="map-label">
+                                PROJECT AREA
+                            </p>
+
+                            <h2 id="selectedRegion">
+                                평창
+                            </h2>
+
+                        </div>
+
+
+                        <p id="regionDescription">
+                            선택한 지역의 사업지역과 관련 정보를 확인할 수 있습니다.
                         </p>
-
-                        <h2 id="selectedRegion">
-                            평창
-                        </h2>
 
                     </div>
 
-                    <p id="regionDescription">
-                        선택한 지역의 사업지역과 관련 정보를 확인할 수 있습니다.
-                    </p>
+
+                    <div class="map">
+
+                        <div id="kakaoMap"></div>
+
+                    </div>
+
 
                 </div>
 
 
-                <!-- 실제 카카오맵 -->
 
-                <div class="map">
+                <!-- =========================
+                    오른쪽 : 주요 서비스
+                ========================== -->
 
-                    <div id="kakaoMap"></div>
+                <div
+                    class="map-service-side"
+                    id="service"
+                >
+
+
+                    <div class="map-service-header">
+
+                        <p class="section-label">
+                            SERVICE
+                        </p>
+
+                        <h2>
+                            주요 서비스
+                        </h2>
+
+                        <p>
+                            사업정보 확인부터 상담과 주민 의견 제안까지
+                            필요한 서비스를 이용할 수 있습니다.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="service-grid">
+
+
+                        <!-- 01 사업현황 확인 -->
+
+                        <article class="service-card">
+
+
+                            <div class="service-icon">
+                                📡
+                            </div>
+
+
+                            <div class="service-number">
+                                01
+                            </div>
+
+
+                            <h3>
+                                사업현황 확인
+                            </h3>
+
+
+                            <p>
+                                공주지역 송전선로의 현재 진행단계와
+                                노선정보를 확인하세요.
+                            </p>
+
+
+                            <button
+                                class="service-button"
+                                data-service="status"
+                            >
+
+                                <span class="service-button-text">
+                                    자세히 보기
+                                </span>
+
+                                <span class="service-button-arrow">
+                                    →
+                                </span>
+
+                            </button>
+
+
+                        </article>
+
+
+
+                        <!-- 02 보상·지원 알아보기 -->
+
+                        <article class="service-card">
+
+
+                            <div class="service-icon">
+                                💰
+                            </div>
+
+
+                            <div class="service-number">
+                                02
+                            </div>
+
+
+                            <h3>
+                                보상·지원 알아보기
+                            </h3>
+
+
+                            <p>
+                                나에게 적용될 수 있는 보상·지원제도를
+                                확인하세요.
+                            </p>
+
+
+                            <button
+                                class="service-button"
+                                data-service="support"
+                            >
+
+                                <span class="service-button-text">
+                                    자세히 보기
+                                </span>
+
+                                <span class="service-button-arrow">
+                                    →
+                                </span>
+
+                            </button>
+
+
+                        </article>
+
+
+
+                        <!-- 03 상담 예약하기 -->
+
+                        <article class="service-card">
+
+
+                            <div class="service-icon">
+                                📅
+                            </div>
+
+
+                            <div class="service-number">
+                                03
+                            </div>
+
+
+                            <h3>
+                                상담 예약하기
+                            </h3>
+
+
+                            <p>
+                                보상·토지·노선 등 궁금한 내용을
+                                담당자와 상담하세요.
+                            </p>
+
+
+                            <button
+                                class="service-button"
+                                data-service="reservation"
+                            >
+
+                                <span class="service-button-text">
+                                    자세히 보기
+                                </span>
+
+                                <span class="service-button-arrow">
+                                    →
+                                </span>
+
+                            </button>
+
+
+                        </article>
+
+
+
+                        <!-- 04 주민 의견 제안하기 -->
+
+                        <article class="service-card">
+
+
+                            <div class="service-icon">
+                                💬
+                            </div>
+
+
+                            <div class="service-number">
+                                04
+                            </div>
+
+
+                            <h3>
+                                주민 의견 제안하기
+                            </h3>
+
+
+                            <p>
+                                우리 지역 송전망 사업에 대한
+                                의견을 제안하세요.
+                            </p>
+
+
+                            <button
+                                class="service-button"
+                                data-service="suggestion"
+                            >
+
+                                <span class="service-button-text">
+                                    자세히 보기
+                                </span>
+
+                                <span class="service-button-arrow">
+                                    →
+                                </span>
+
+                            </button>
+
+
+                        </article>
+
+
+                    </div>
+
 
                 </div>
 
 
             </div>
+
 
         </section>
 
@@ -1123,190 +1356,6 @@
                         </div>
 
                     </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- =========================
-            서비스 안내
-        ========================= -->
-
-        <section
-            class="service-section"
-            id="service"
-        >
-
-            <div class="service-inner">
-
-                <div class="service-header">
-
-                    <p class="section-label">
-                        SERVICE
-                    </p>
-
-                    <h2>
-                        주요 서비스
-                    </h2>
-
-                    <p>
-                        사업정보 확인부터 상담과 주민 의견 제안까지
-                        필요한 서비스를 이용할 수 있습니다.
-                    </p>
-
-                </div>
-
-
-                <div class="service-grid">
-
-                    <!-- 01 사업현황 확인 -->
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-                            📡
-                        </div>
-
-                        <div class="service-number">
-                            01
-                        </div>
-
-                        <h3>
-                            사업현황 확인
-                        </h3>
-
-                        <p>
-                            공주지역 송전선로의 현재 진행단계와
-                            노선정보를 확인하세요.
-                        </p>
-
-                        <button
-                            class="service-button"
-                            data-service="status"
-                        >
-                            <span class="service-button-text">
-                                자세히 보기
-                            </span>
-
-                            <span class="service-button-arrow">
-                                →
-                            </span>
-                        </button>
-
-                    </article>
-
-
-                    <!-- 02 보상·지원 알아보기 -->
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-                            💰
-                        </div>
-
-                        <div class="service-number">
-                            02
-                        </div>
-
-                        <h3>
-                            보상·지원 알아보기
-                        </h3>
-
-                        <p>
-                            나에게 적용될 수 있는 보상·지원제도를
-                            확인하세요.
-                        </p>
-
-                        <button
-                            class="service-button"
-                            data-service="support"
-                        >
-                            <span class="service-button-text">
-                                자세히 보기
-                            </span>
-
-                            <span class="service-button-arrow">
-                                →
-                            </span>
-                        </button>
-
-                    </article>
-
-
-                    <!-- 03 상담 예약하기 -->
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-                            📅
-                        </div>
-
-                        <div class="service-number">
-                            03
-                        </div>
-
-                        <h3>
-                            상담 예약하기
-                        </h3>
-
-                        <p>
-                            보상·토지·노선 등 궁금한 내용을
-                            담당자와 상담하세요.
-                        </p>
-
-                        <button
-                            class="service-button"
-                            data-service="reservation"
-                        >
-                            <span class="service-button-text">
-                                자세히 보기
-                            </span>
-
-                            <span class="service-button-arrow">
-                                →
-                            </span>
-                        </button>
-
-                    </article>
-
-
-                    <!-- 04 주민 의견 제안하기 -->
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-                            💬
-                        </div>
-
-                        <div class="service-number">
-                            04
-                        </div>
-
-                        <h3>
-                            주민 의견 제안하기
-                        </h3>
-
-                        <p>
-                            우리 지역 송전망 사업에 대한
-                            의견을 제안하세요.
-                        </p>
-
-                        <button
-                            class="service-button"
-                            data-service="suggestion"
-                        >
-                            <span class="service-button-text">
-                                자세히 보기
-                            </span>
-
-                            <span class="service-button-arrow">
-                                →
-                            </span>
-                        </button>
-
-                    </article>
 
                 </div>
 

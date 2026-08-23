@@ -4331,10 +4331,10 @@ a {
 ========================================================= */
 
 .notice-faq-layout {
-    width: 92%;
-    max-width: 1400px;
+    width: 100%;
+    max-width: none;
 
-    margin: 0 auto;
+    margin: 0;
 
     display: grid;
     grid-template-columns:
@@ -4463,6 +4463,322 @@ a {
 
     .notice-faq-layout {
         grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================================================
+   지도 + 지역 사업정보 2단 레이아웃
+========================================================= */
+
+.map-container {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.95fr)
+        minmax(0, 1.05fr);
+
+    gap: 28px;
+
+    align-items: stretch;
+
+    overflow: visible;
+
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+
+.map-side {
+    min-width: 0;
+
+    overflow: hidden;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0, 0, 0, 0.05);
+}
+
+
+.map-side .map {
+    height: 420px;
+}
+
+
+.region-project-info {
+    padding: 36px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #ffffff;
+}
+
+
+.region-project-info h2 {
+    margin: 8px 0 10px;
+
+    font-size: 28px;
+    font-weight: 800;
+}
+
+
+.region-project-summary {
+    margin: 0 0 28px;
+
+    color: #777;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+.region-project-list {
+    display: flex;
+    flex-direction: column;
+
+    border-top: 1px solid #eeeeee;
+}
+
+
+.region-project-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+.region-project-item span {
+    color: #888;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.region-project-item strong {
+    color: #222;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    text-align: right;
+}
+
+
+.region-project-button {
+    margin-top: auto;
+
+    min-height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 0 18px;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+
+.region-project-button:hover {
+    background: var(--primary-dark);
+}
+
+
+@media (max-width: 900px) {
+
+    .map-container {
+        grid-template-columns: 1fr;
+    }
+
+    .map-side {
+        border-right: none;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+}
+
+.map-container .service-section {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.map-container .service-inner {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+}
+
+.map-container .service-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+.map-container .service-card {
+    min-height: 190px;
+
+    padding: 22px;
+}
+
+.map-container .service-card h3 {
+    font-size: 18px;
+}
+
+.map-container .service-card p {
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   지도 + 주요 서비스 2열 레이아웃
+========================================================= */
+
+@media (min-width: 1201px) {
+
+    body:not(.detail-page) .map-container {
+        display: grid;
+
+        grid-template-columns:
+            minmax(0, 0.85fr)
+            minmax(0, 1.15fr);
+
+        gap: 32px;
+
+        align-items: stretch;
+
+        overflow: visible;
+
+        border: none;
+        border-radius: 0;
+
+        background: transparent;
+
+        box-shadow: none;
+    }
+
+
+    /* =========================
+       왼쪽 지도
+    ========================= */
+
+    body:not(.detail-page) .map-side {
+        min-width: 0;
+
+        overflow: hidden;
+
+        border: 1px solid #e8e8e8;
+        border-radius: 20px;
+
+        background: #ffffff;
+
+        box-shadow:
+            0 12px 35px
+            rgba(0, 0, 0, 0.05);
+    }
+
+
+    body:not(.detail-page) .map-side .map {
+        height: 300px;
+    }
+
+    body:not(.detail-page) .map-side #kakaoMap {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    /* =========================
+       오른쪽 주요 서비스
+    ========================= */
+
+    body:not(.detail-page) .map-service-side {
+        min-width: 0;
+    }
+
+
+    body:not(.detail-page) .map-service-header {
+        margin-bottom: 18px;
+    }
+
+
+    body:not(.detail-page) .map-service-header h2 {
+        margin: 5px 0 8px;
+
+        font-size: 27px;
+        font-weight: 800;
+    }
+
+
+    body:not(.detail-page) .map-service-header > p:last-child {
+        margin: 0;
+
+        color: #777;
+
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+
+    body:not(.detail-page) .map-service-side .service-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+
+    body:not(.detail-page) .map-service-side .service-card {
+        min-height: 190px;
+
+        padding: 21px;
+    }
+
+
+    body:not(.detail-page) .map-service-side .service-card h3 {
+        font-size: 17px;
+    }
+
+
+    body:not(.detail-page) .map-service-side .service-card p {
+        font-size: 12px;
+        line-height: 1.55;
+    }
+
+    body:not(.detail-page) .map-service-side .service-card {
+        opacity: 1;
+        transform: translateY(0);
     }
 
 }
@@ -5149,7 +5465,7 @@ a {
     body:not(.detail-page) .related-inner,
     body:not(.detail-page) .footer-inner {
         width: 92%;
-        max-width: 1120px;
+        max-width: 1220px;
     }
 
     /* -------------------------
@@ -5340,7 +5656,7 @@ a {
 
     body:not(.detail-page) .notice-section,
     body:not(.detail-page) .faq-section {
-        margin: 96px auto;
+        margin: 65px auto;
     }
 
     body:not(.detail-page) .notice-section::before {
@@ -5711,4 +6027,97 @@ a {
     background: var(--primary-dark);
 
     transform: translateY(-1px);
+}
+
+@media (max-width: 1200px) {
+
+    .map-container {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+    }
+
+    .map-service-side .service-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .map-service-side .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (min-width: 1201px) {
+
+    body:not(.detail-page) .map-side .map {
+        height: 300px;
+    }
+
+    body:not(.detail-page) .map-service-header {
+        margin-bottom: 12px;
+    }
+
+    body:not(.detail-page) .map-service-header h2 {
+        font-size: 24px;
+        margin: 3px 0 5px;
+    }
+
+    body:not(.detail-page) .map-service-header > p:last-child {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    body:not(.detail-page) .map-service-side .service-grid {
+        gap: 12px;
+    }
+
+    body:not(.detail-page) .map-service-side .service-card {
+        min-height: 155px;
+        padding: 18px;
+    }
+
+    body:not(.detail-page) .map-service-side .service-card h3 {
+        font-size: 16px;
+        margin: 8px 0;
+    }
+
+    body:not(.detail-page) .map-service-side .service-card p {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+}
+
+/* =========================================================
+   메인 콘텐츠 공통 폭 정리
+========================================================= */
+
+@media (min-width: 1201px) {
+
+    body:not(.detail-page) .region-section {
+        width: calc(100% - 80px);
+        max-width: 1220px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        margin-top: 55px;
+        margin-bottom: 80px;
+    }
+
+    body:not(.detail-page) .about-section {
+        width: calc(100% - 80px);
+        max-width: 1220px;
+
+        margin: 70px auto;
+
+        padding: 60px 0;
+    }
+
 }
