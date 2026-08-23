@@ -3761,154 +3761,260 @@ a {
         grid-template-columns: 1fr;
     }
 }
+
 /* =========================================================
-   메인 콘텐츠 공통 폭 정리
+   메인페이지 최종 레이아웃 정리
+   - PC 본문 기준폭 통일
+   - 메인 배너 중심축 기준으로 하단 콘텐츠 정렬
+   - 지도 / 소개 / 공지+FAQ / 주민지원사업 / 관련사이트 동일 축
 ========================================================= */
+
 @media (min-width: 1201px) {
+
     body:not(.detail-page) {
-        --side-panel-width: 200px;
+        --main-content-width: 1220px;
+        --main-content-gap: 80px;
+        --main-content-shift: -100px;
     }
-    body:not(.detail-page) .region-section {
-        width: min(1220px, calc(100% - 80px));
-        max-width: 1220px;
-        margin-top: 55px;
-        margin-bottom: 80px;
+
+    body:not(.detail-page) .region-section,
+    body:not(.detail-page) .about-section,
+    body:not(.detail-page) .notice-section,
+    body:not(.detail-page) .resident-support-summary {
+        width: min(
+            var(--main-content-width),
+            calc(100% - var(--main-content-gap))
+        );
+        max-width: var(--main-content-width);
+
         margin-left: auto;
         margin-right: auto;
+
         position: relative;
-        left: calc(var(--side-panel-width, 0px) / -2);
+        left: var(--main-content-shift);
     }
+
+    body:not(.detail-page) .related-inner {
+        width: min(
+            var(--main-content-width),
+            calc(100% - var(--main-content-gap))
+        );
+        max-width: var(--main-content-width);
+
+        margin-left: auto;
+        margin-right: auto;
+
+        position: relative;
+        left: var(--main-content-shift);
+    }
+
+    body:not(.detail-page) .region-section {
+        margin-top: 55px;
+        margin-bottom: 80px;
+    }
+
     body:not(.detail-page) .about-section {
-        width: calc(100% - 80px);
-        max-width: 1220px;
-        margin: 70px auto;
-        padding: 60px 0;
+        margin-top: 70px;
+        margin-bottom: 70px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    body:not(.detail-page) .notice-section {
+        margin-top: 65px;
+        margin-bottom: 55px;
+    }
+
+    body:not(.detail-page) .resident-support-summary {
+        margin-top: 55px;
+        margin-bottom: 55px;
+    }
+
+    body:not(.detail-page) .related-section {
+        padding-top: 55px;
     }
 }
+
+
 /* =========================================================
    주민지원사업 요약
 ========================================================= */
+
 .resident-support-summary {
     width: calc(100% - 80px);
     max-width: 1220px;
+
     margin: 70px auto;
     padding: 0;
 }
-/* 전체 가로 박스 */
+
 .resident-support-inner {
     display: flex;
     align-items: center;
     gap: 28px;
+
     padding: 30px 34px;
+
     border: 1px solid #dfeeee;
     border-radius: 18px;
+
     background: linear-gradient(
         90deg,
         #eef9f9 0%,
         #f7fbfb 100%
     );
 }
-/* 왼쪽 제목 영역 */
+
 .resident-support-title {
     width: 220px;
     flex-shrink: 0;
+
     padding-right: 28px;
+
     border-right: 1px solid #d7e7e7;
 }
+
 .resident-support-title h2 {
     margin: 5px 0 8px;
+
     font-size: 26px;
     font-weight: 800;
 }
+
 .resident-support-title > p:last-child {
     margin: 0;
+
     color: #666;
+
     font-size: 13px;
     line-height: 1.7;
 }
-/* 가운데 3개 정보 */
+
 .resident-support-item {
     flex: 1;
     min-width: 0;
+
     display: flex;
     align-items: center;
     gap: 12px;
 }
+
 .resident-support-icon {
     width: 44px;
     height: 44px;
     flex-shrink: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     border-radius: 50%;
+
     background: #ffffff;
     color: var(--primary);
+
     font-size: 20px;
     font-weight: 800;
 }
+
 .resident-support-item h3 {
     margin: 0 0 5px;
+
     font-size: 15px;
     font-weight: 800;
+
     white-space: nowrap;
 }
+
 .resident-support-item p {
     margin: 0;
+
     color: #777;
+
     font-size: 12px;
     line-height: 1.5;
+
     word-break: keep-all;
 }
-/* 오른쪽 자세히 보기 */
+
 .resident-support-button {
     width: 140px;
     min-width: 140px;
     height: 44px;
     flex-shrink: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 14px;
+
     padding: 0 18px;
+
     border-radius: 10px;
+
     background: var(--primary);
     color: #ffffff;
+
     font-size: 13px;
     font-weight: 800;
+
     white-space: nowrap;
+
     transition: 0.2s;
 }
+
 .resident-support-button:hover {
     transform: translateY(-2px);
 }
+
+
+/* =========================================================
+   주민지원사업 반응형
+========================================================= */
+
 @media (max-width: 1000px) {
+
+    .resident-support-summary {
+        width: 94%;
+        margin: 60px auto;
+    }
+
     .resident-support-inner {
         flex-wrap: wrap;
     }
+
     .resident-support-title {
         width: 100%;
+
         padding-right: 0;
         padding-bottom: 20px;
+
         border-right: none;
         border-bottom: 1px solid #d7e7e7;
     }
+
     .resident-support-item {
         flex: 1 1 calc(50% - 14px);
     }
+
     .resident-support-button {
         width: 100%;
     }
 }
+
 @media (max-width: 600px) {
+
     .resident-support-summary {
         width: 94%;
     }
+
     .resident-support-inner {
         flex-direction: column;
         align-items: stretch;
+
         padding: 24px;
     }
+
     .resident-support-item {
         width: 100%;
         flex: none;
