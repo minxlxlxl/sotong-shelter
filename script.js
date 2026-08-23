@@ -530,16 +530,6 @@ const dots =
         ".dot"
     );
 
-const prevSlide =
-    document.getElementById(
-        "prevSlide"
-    );
-
-const nextSlide =
-    document.getElementById(
-        "nextSlide"
-    );
-
 let currentSlide = 0;
 
 
@@ -595,64 +585,6 @@ function showSlide(index) {
     currentSlide = index;
 
 }
-
-
-/* 다음 */
-
-if (nextSlide) {
-
-    nextSlide.addEventListener(
-        "click",
-        function () {
-
-            let next =
-                currentSlide + 1;
-
-
-            if (
-                next >= slides.length
-            ) {
-
-                next = 0;
-
-            }
-
-
-            showSlide(next);
-
-        }
-    );
-
-}
-
-
-/* 이전 */
-
-if (prevSlide) {
-
-    prevSlide.addEventListener(
-        "click",
-        function () {
-
-            let prev =
-                currentSlide - 1;
-
-
-            if (prev < 0) {
-
-                prev =
-                    slides.length - 1;
-
-            }
-
-
-            showSlide(prev);
-
-        }
-    );
-
-}
-
 
 /* 아래 점 클릭 */
 
