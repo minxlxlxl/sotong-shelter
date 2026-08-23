@@ -6100,15 +6100,23 @@ a {
 
 @media (min-width: 1201px) {
 
+    body:not(.detail-page) {
+        --side-panel-width: 200px;
+    }
+
     body:not(.detail-page) .region-section {
-        width: calc(100% - 80px);
+        width: min(1220px, calc(100% - 80px));
         max-width: 1220px;
+
+        margin-top: 55px;
+        margin-bottom: 80px;
 
         margin-left: auto;
         margin-right: auto;
 
-        margin-top: 55px;
-        margin-bottom: 80px;
+        position: relative;
+
+        left: calc(var(--side-panel-width, 0px) / -2);
     }
 
     body:not(.detail-page) .about-section {
