@@ -1315,7 +1315,7 @@
         </section>
 
         <!-- =========================
-            공지사항
+            공지사항 + FAQ
         ========================= -->
 
         <section
@@ -1323,282 +1323,326 @@
             id="notice"
         >
 
-            <div class="notice-inner">
+            <div class="notice-faq-layout">
 
-                <div class="notice-header">
 
-                    <div>
+                <!-- =========================
+                    왼쪽 : 공지사항
+                ========================== -->
 
-                        <p class="section-label">
-                            NOTICE
-                        </p>
+                <div class="notice-inner">
 
-                        <h2>
-                            공지사항
-                        </h2>
+                    <div class="notice-header">
+
+                        <div>
+
+                            <p class="section-label">
+                                NOTICE
+                            </p>
+
+                            <h2>
+                                공지사항
+                            </h2>
+
+                        </div>
+
+                        <button
+                            class="notice-more"
+                            id="noticeMore"
+                        >
+                            전체보기
+
+                            <span class="notice-more-arrow">
+                                ↓
+                            </span>
+
+                        </button>
 
                     </div>
 
-                    <button
-                        class="notice-more"
-                        id="noticeMore"
-                    >
-                        전체보기
-                        <span class="notice-more-arrow">
-                            ↓
-                        </span>
-                    </button>
 
-                </div>
-
-
-                <div class="notice-list">
-
-                    <button
-                        class="notice-item"
-                        data-category="공지"
-                        data-title="소통쉼터 홈페이지 이용 안내"
-                        data-date="2026.08.18"
-                        data-content="소통쉼터 홈페이지를 이용해주셔서 감사합니다. 지역별 쉼터 위치와 운영안내, 상담예약 등의 서비스를 확인하실 수 있습니다."
-                    >
-
-                        <span class="notice-category">
-                            공지
-                        </span>
-
-                        <strong>
-                            소통쉼터 홈페이지 이용 안내
-                        </strong>
-
-                        <span class="notice-date">
-                            2026.08.18
-                        </span>
-
-                        <span class="notice-arrow">
-                            →
-                        </span>
-
-                    </button>
-
-
-                    <button
-                        class="notice-item"
-                        data-category="안내"
-                        data-title="지역별 소통쉼터 운영 안내"
-                        data-date="2026.08.18"
-                        data-content="평창, 태백, 홍천, 괴산, 전주, 고창 지역의 소통쉼터 운영 정보를 안내합니다. 세부 운영시간은 각 지역 상세페이지에서 확인해주세요."
-                    >
-
-                        <span class="notice-category">
-                            안내
-                        </span>
-
-                        <strong>
-                            지역별 소통쉼터 운영 안내
-                        </strong>
-
-                        <span class="notice-date">
-                            2026.08.18
-                        </span>
-
-                        <span class="notice-arrow">
-                            →
-                        </span>
-
-                    </button>
-
-
-                    <button
-                        class="notice-item"
-                        data-category="안내"
-                        data-title="상담예약 서비스 이용 안내"
-                        data-date="2026.08.18"
-                        data-content="상담예약 메뉴에서 원하는 날짜와 시간을 선택할 수 있습니다. 현재 예약 기능은 테스트 단계이며 추후 실제 예약 시스템과 연동할 예정입니다."
-                    >
-
-                        <span class="notice-category">
-                            안내
-                        </span>
-
-                        <strong>
-                            상담예약 서비스 이용 안내
-                        </strong>
-
-                        <span class="notice-date">
-                            2026.08.18
-                        </span>
-
-                        <span class="notice-arrow">
-                            →
-                        </span>
-
-                    </button>
-
-                    <div
-                        class="notice-extra"
-                        id="noticeExtra"
-                    >
+                    <div class="notice-list">
 
                         <button
                             class="notice-item"
                             data-category="공지"
-                            data-title="소통쉼터 시설 이용 안내"
-                            data-date="2026.08.10"
-                            data-content="소통쉼터 시설 이용과 관련된 안내사항입니다. 지역별 운영 내용은 상세페이지에서 확인해주세요."
+                            data-title="소통쉼터 홈페이지 이용 안내"
+                            data-date="2026.08.18"
+                            data-content="소통쉼터 홈페이지를 이용해주셔서 감사합니다. 지역별 쉼터 위치와 운영안내, 상담예약 등의 서비스를 확인하실 수 있습니다."
                         >
+
                             <span class="notice-category">
                                 공지
                             </span>
 
                             <strong>
-                                소통쉼터 시설 이용 안내
+                                소통쉼터 홈페이지 이용 안내
                             </strong>
 
                             <span class="notice-date">
-                                2026.08.10
+                                2026.08.18
                             </span>
+
+                            <span class="notice-arrow">
+                                →
+                            </span>
+
                         </button>
 
 
                         <button
                             class="notice-item"
                             data-category="안내"
-                            data-title="주민제안·경청 서비스 안내"
-                            data-date="2026.08.05"
-                            data-content="지역 주민 여러분의 다양한 의견을 듣기 위한 주민제안·경청 서비스를 운영하고 있습니다."
+                            data-title="지역별 소통쉼터 운영 안내"
+                            data-date="2026.08.18"
+                            data-content="평창, 태백, 홍천, 괴산, 전주, 고창 지역의 소통쉼터 운영 정보를 안내합니다. 세부 운영시간은 각 지역 상세페이지에서 확인해주세요."
                         >
+
                             <span class="notice-category">
                                 안내
                             </span>
 
                             <strong>
-                                주민제안·경청 서비스 안내
+                                지역별 소통쉼터 운영 안내
                             </strong>
 
                             <span class="notice-date">
-                                2026.08.05
+                                2026.08.18
+                            </span>
+
+                            <span class="notice-arrow">
+                                →
                             </span>
 
                         </button>
 
+
+                        <button
+                            class="notice-item"
+                            data-category="안내"
+                            data-title="상담예약 서비스 이용 안내"
+                            data-date="2026.08.18"
+                            data-content="상담예약 메뉴에서 원하는 날짜와 시간을 선택할 수 있습니다. 현재 예약 기능은 테스트 단계이며 추후 실제 예약 시스템과 연동할 예정입니다."
+                        >
+
+                            <span class="notice-category">
+                                안내
+                            </span>
+
+                            <strong>
+                                상담예약 서비스 이용 안내
+                            </strong>
+
+                            <span class="notice-date">
+                                2026.08.18
+                            </span>
+
+                            <span class="notice-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+                        <div
+                            class="notice-extra"
+                            id="noticeExtra"
+                        >
+
+                            <button
+                                class="notice-item"
+                                data-category="공지"
+                                data-title="소통쉼터 시설 이용 안내"
+                                data-date="2026.08.10"
+                                data-content="소통쉼터 시설 이용과 관련된 안내사항입니다. 지역별 운영 내용은 상세페이지에서 확인해주세요."
+                            >
+
+                                <span class="notice-category">
+                                    공지
+                                </span>
+
+                                <strong>
+                                    소통쉼터 시설 이용 안내
+                                </strong>
+
+                                <span class="notice-date">
+                                    2026.08.10
+                                </span>
+
+                            </button>
+
+
+                            <button
+                                class="notice-item"
+                                data-category="안내"
+                                data-title="주민제안·경청 서비스 안내"
+                                data-date="2026.08.05"
+                                data-content="지역 주민 여러분의 다양한 의견을 듣기 위한 주민제안·경청 서비스를 운영하고 있습니다."
+                            >
+
+                                <span class="notice-category">
+                                    안내
+                                </span>
+
+                                <strong>
+                                    주민제안·경청 서비스 안내
+                                </strong>
+
+                                <span class="notice-date">
+                                    2026.08.05
+                                </span>
+
+                            </button>
+
+                        </div>
+
                     </div>
 
                 </div>
+
+
+
+                <!-- =========================
+                    오른쪽 : FAQ
+                ========================== -->
+
+                <div
+                    class="faq-summary"
+                    id="faq"
+                >
+
+                    <div class="faq-summary-header">
+
+                        <p class="section-label">
+                            FAQ
+                        </p>
+
+                        <h2>
+                            자주 묻는 질문
+                        </h2>
+
+                        <p>
+                            소통쉼터 이용과 관련해
+                            자주 묻는 내용을 확인해보세요.
+                        </p>
+
+                    </div>
+
+
+                    <div class="faq-summary-list">
+
+
+                        <div class="faq-summary-item">
+
+                            <button class="faq-summary-question">
+
+                                <span>
+                                    상담예약은 어떻게 하나요?
+                                </span>
+
+                                <strong>
+                                    +
+                                </strong>
+
+                            </button>
+
+                            <div class="faq-summary-answer">
+
+                                <p>
+                                    지역 상세페이지의 상담예약 메뉴에서
+                                    날짜와 시간을 선택해 예약할 수 있습니다.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="faq-summary-item">
+
+                            <button class="faq-summary-question">
+
+                                <span>
+                                    소통쉼터는 누구나 이용할 수 있나요?
+                                </span>
+
+                                <strong>
+                                    +
+                                </strong>
+
+                            </button>
+
+                            <div class="faq-summary-answer">
+
+                                <p>
+                                    지역 주민이 이용할 수 있는
+                                    열린 소통 공간으로 운영됩니다.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="faq-summary-item">
+
+                            <button class="faq-summary-question">
+
+                                <span>
+                                    주민 의견은 어디에서 제안하나요?
+                                </span>
+
+                                <strong>
+                                    +
+                                </strong>
+
+                            </button>
+
+                            <div class="faq-summary-answer">
+
+                                <p>
+                                    지역 상세페이지의 주민제안·경청 메뉴에서
+                                    의견을 작성하고 등록할 수 있습니다.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="faq-summary-item">
+
+                            <button class="faq-summary-question">
+
+                                <span>
+                                    보상·지원 정보는 어디서 확인하나요?
+                                </span>
+
+                                <strong>
+                                    +
+                                </strong>
+
+                            </button>
+
+                            <div class="faq-summary-answer">
+
+                                <p>
+                                    주요 서비스의 보상·지원 안내에서
+                                    관련 정보를 확인할 수 있습니다.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
 
             </div>
 
         </section>
-
-        <!-- =========================
-            FAQ
-        ========================= -->
-
-        <section
-            class="faq-section"
-            id="faq"
-        >
-
-            <div class="faq-inner">
-
-                <div class="faq-header">
-
-                    <p class="section-label">
-                        FAQ
-                    </p>
-
-                    <h2>
-                        자주 묻는 질문
-                    </h2>
-
-                    <p>
-                        소통쉼터 이용과 관련해 자주 묻는 내용을 확인해보세요.
-                    </p>
-
-                </div>
-
-
-                <div class="faq-list">
-
-                    <div class="faq-item">
-
-                        <button class="faq-question">
-
-                            <span>
-                                상담예약은 어떻게 하나요?
-                            </span>
-
-                            <strong>
-                                +
-                            </strong>
-
-                        </button>
-
-                        <div class="faq-answer">
-
-                            <p>
-                                지역 상세페이지의 상담예약 메뉴에서 날짜와 시간을 선택한 뒤 예약을 진행할 수 있습니다.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="faq-item">
-
-                        <button class="faq-question">
-
-                            <span>
-                                소통쉼터는 누구나 이용할 수 있나요?
-                            </span>
-
-                            <strong>
-                                +
-                            </strong>
-
-                        </button>
-
-                        <div class="faq-answer">
-
-                            <p>
-                                지역 주민 누구나 이용할 수 있도록 운영되는 열린 소통 공간입니다.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="faq-item">
-
-                        <button class="faq-question">
-
-                            <span>
-                                주민제안은 어떻게 등록하나요?
-                            </span>
-
-                            <strong>
-                                +
-                            </strong>
-
-                        </button>
-
-                        <div class="faq-answer">
-
-                            <p>
-                                상세페이지의 주민제안·경청 메뉴에서 제안 유형, 제목, 내용을 입력해 등록할 수 있습니다.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
 
 
         <!-- =========================
@@ -1629,7 +1673,6 @@
 
                 </div>
 
-
                 <div class="related-grid">
 
                     <!-- 한국전력공사 -->
@@ -1656,7 +1699,8 @@
                             </h3>
 
                             <p>
-                                Korea Electric Power Corporation
+                                전력사업 및 한전 공식정보를
+                                확인할 수 있습니다.
                             </p>
 
                         </div>
@@ -1668,7 +1712,7 @@
                     </a>
 
 
-                    <!-- 관련기관 -->
+                    <!-- 국가기간전력망종합시스템 -->
 
                     <a
                         href="#"
@@ -1676,7 +1720,7 @@
                     >
 
                         <div class="related-icon">
-                            <span>RE</span>
+                            <span>GP</span>
                         </div>
 
                         <div class="related-info">
@@ -1686,11 +1730,86 @@
                             </span>
 
                             <h3>
-                                관련 기관
+                                국가기간전력망종합시스템
                             </h3>
 
                             <p>
-                                관련 기관 사이트 바로가기
+                                국가 전력망 사업 및
+                                정책 관련 정보를 확인할 수 있습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="related-arrow">
+                            ↗
+                        </div>
+
+                    </a>
+
+
+                    <!-- 국가법령정보센터 -->
+
+                    <a
+                        href="https://www.law.go.kr/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="related-card"
+                    >
+
+                        <div class="related-icon">
+                            <span>LAW</span>
+                        </div>
+
+                        <div class="related-info">
+
+                            <span class="related-type">
+                                RELATED SITE
+                            </span>
+
+                            <h3>
+                                국가법령정보센터
+                            </h3>
+
+                            <p>
+                                송·변전설비 관련 법령과
+                                제도 정보를 확인할 수 있습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="related-arrow">
+                            ↗
+                        </div>
+
+                    </a>
+
+
+                    <!-- 공주시청 -->
+
+                    <a
+                        href="https://www.gongju.go.kr/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="related-card"
+                    >
+
+                        <div class="related-icon">
+                            <span>GJ</span>
+                        </div>
+
+                        <div class="related-info">
+
+                            <span class="related-type">
+                                RELATED SITE
+                            </span>
+
+                            <h3>
+                                공주시청
+                            </h3>
+
+                            <p>
+                                공주시 지역 공고 및
+                                행정정보를 확인할 수 있습니다.
                             </p>
 
                         </div>

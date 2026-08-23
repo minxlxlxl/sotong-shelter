@@ -4326,6 +4326,147 @@ a {
     transition-delay: 0.35s;
 }
 
+/* =========================================================
+   NOTICE + FAQ 2단 레이아웃
+========================================================= */
+
+.notice-faq-layout {
+    width: 92%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.25fr)
+        minmax(360px, 0.75fr);
+
+    gap: 35px;
+
+    align-items: start;
+}
+
+
+.notice-faq-layout .notice-inner {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+}
+
+
+.faq-summary {
+    padding: 30px;
+
+    border: 1px solid #eeeeee;
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0, 0, 0, 0.05);
+}
+
+
+.faq-summary-header {
+    margin-bottom: 20px;
+}
+
+
+.faq-summary-header h2 {
+    margin-bottom: 8px;
+
+    font-size: 28px;
+    font-weight: 800;
+}
+
+
+.faq-summary-header > p:last-child {
+    color: #777;
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+.faq-summary-list {
+    border-top: 1px solid #eeeeee;
+}
+
+
+.faq-summary-item {
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+.faq-summary-question {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px 4px;
+
+    color: #333;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-align: left;
+}
+
+
+.faq-summary-question strong {
+    flex-shrink: 0;
+
+    color: var(--primary);
+
+    font-size: 20px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.faq-summary-answer {
+    display: none;
+
+    padding: 0 4px 18px;
+}
+
+
+.faq-summary-answer p {
+    color: #777;
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+.faq-summary-item.active
+.faq-summary-answer {
+    display: block;
+}
+
+
+.faq-summary-item.active
+.faq-summary-question strong {
+    transform: rotate(45deg);
+}
+
+
+@media (max-width: 1100px) {
+
+    .notice-faq-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
 /* =========================
    메인페이지 모바일
 ========================= */

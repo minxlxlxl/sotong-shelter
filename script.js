@@ -1721,3 +1721,57 @@ heroRegionSearchButton.addEventListener(
 
     }
 );
+
+/* =========================================
+   메인 FAQ
+========================================= */
+
+const faqSummaryItems =
+    document.querySelectorAll(
+        ".faq-summary-item"
+    );
+
+
+faqSummaryItems.forEach(
+    function (item) {
+
+        const question =
+            item.querySelector(
+                ".faq-summary-question"
+            );
+
+
+        question.addEventListener(
+            "click",
+            function () {
+
+                const isActive =
+                    item.classList.contains(
+                        "active"
+                    );
+
+
+                faqSummaryItems.forEach(
+                    function (otherItem) {
+
+                        otherItem.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                if (!isActive) {
+
+                    item.classList.add(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
