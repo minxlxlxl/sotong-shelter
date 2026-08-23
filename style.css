@@ -4326,7 +4326,6 @@ a {
     transition-delay: 0.35s;
 }
 
-
 /* =========================
    메인페이지 모바일
 ========================= */
@@ -5400,6 +5399,22 @@ a {
 
     body:not(.detail-page) .slide {
         padding: 0 55px;
+    }
+    /* =========================================
+    배너 지역검색 사용 후
+    기존 지역 선택 UI 숨김
+    ========================================= */
+
+    body:not(.detail-page) #location {
+        display: none;
+    }
+
+    body:not(.detail-page) .region-tabs {
+        display: none;
+    }
+
+    body:not(.detail-page) .region-section {
+        margin-top: 55px;
     }
 
 }

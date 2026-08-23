@@ -294,7 +294,7 @@ function changeRegion(regionName) {
     if (regionDescription) {
 
         regionDescription.textContent =
-            region.description;
+            regionName + " 지역의 사업지역과 관련 정보를 확인할 수 있습니다.";
 
     }
 
@@ -1649,6 +1649,143 @@ desktopRegionButtons.forEach(
 
             }
         );
+
+    }
+);
+
+/* =========================================
+   메인 배너 지역 검색
+========================================= */
+
+const heroProvince =
+    document.getElementById("heroProvince");
+
+const heroCity =
+    document.getElementById("heroCity");
+
+const heroRegionSearchButton =
+    document.getElementById("heroRegionSearchButton");
+
+
+const heroRegionData = {
+
+    강원: [
+        "평창",
+        "태백",
+        "홍천"
+    ],
+
+    충북: [
+        "괴산"
+    ],
+
+    전북: [
+        "전주",
+        "고창"
+    ]
+
+};
+
+
+/* 광역시·도 선택 */
+
+heroProvince.addEventListener(
+    "change",
+    function () {
+
+        const province =
+            heroProvince.value;
+
+
+        /* 시·군 초기화 */
+
+        heroCity.innerHTML =
+            `<option value="">
+                시·군 선택
+            </option>`;
+
+
+        if (!province) {
+            return;
+        }
+
+
+        const cities =
+            heroRegionData[province];
+
+
+        cities.forEach(
+            function (city) {
+
+                const option =
+                    document.createElement("option");
+
+                option.value = city;
+                option.textContent = city;
+
+                heroCity.appendChild(option);
+
+            }
+        );
+
+    }
+);
+
+
+/* 찾아보기 */
+
+heroRegionSearchButton.addEventListener(
+    "click",
+    function () {
+
+        const regionName =
+            heroCity.value;
+
+
+        if (!regionName) {
+
+            alert("시·군을 선택해주세요.");
+
+            return;
+        }
+
+
+        /*
+            기존 지역 버튼 찾기
+
+            기존 지도 기능을 새로 만들지 않고
+            현재 작동하는 지역 버튼을 대신 클릭
+        */
+
+        const regionButton =
+            document.querySelector(
+                `.region-tab[data-region="${regionName}"]`
+            );
+
+
+        if (regionButton) {
+
+            regionButton.click();
+
+        }
+
+
+        /* 지도까지 부드럽게 이동 */
+
+        const mapContainer =
+            document.querySelector(
+                ".map-container"
+            );
+
+
+        if (mapContainer) {
+
+            mapContainer.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
 
     }
 );
