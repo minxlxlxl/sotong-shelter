@@ -580,6 +580,7 @@ detailButtons.forEach(
 
 const allowedTabs = [
     "status",
+    "support",
     "operation",
     "facility",
     "reservation",
