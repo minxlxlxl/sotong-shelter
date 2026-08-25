@@ -780,91 +780,219 @@ const reservationSubmit =
 
 let selectedTime = null;
 
-/* 날짜 선택 전 시간 버튼 비활성화 */
-
-timeButtons.forEach(
-    function (button) {
-
-        button.disabled = true;
-
-    }
-);
-
 
 /* =========================
-   오늘 이전 날짜 선택 방지
+   오늘 날짜 YYYY-MM-DD
 ========================= */
 
-if (reservationDate) {
+function getTodayString() {
 
-    const today =
+    const now =
         new Date();
 
     const year =
-        today.getFullYear();
+        now.getFullYear();
 
     const month =
         String(
-            today.getMonth() + 1
+            now.getMonth() + 1
         ).padStart(2, "0");
 
     const day =
         String(
-            today.getDate()
+            now.getDate()
         ).padStart(2, "0");
 
+    return `${year}-${month}-${day}`;
+}
+
+
+/* =========================
+   현재 시간 이후인지 확인
+========================= */
+
+function updateTimeButtons() {
+
+    if (!reservationDate) {
+        return;
+    }
+
+    const selectedDate =
+        reservationDate.value;
 
     const todayString =
-        `${year}-${month}-${day}`;
+        getTodayString();
 
+    const now =
+        new Date();
+
+
+    timeButtons.forEach(
+        function (button) {
+
+            button.classList.remove(
+                "active"
+            );
+
+
+            /* 날짜를 아직 선택하지 않은 경우 */
+
+            if (!selectedDate) {
+
+                button.disabled = true;
+
+                return;
+
+            }
+
+
+            /* 오늘보다 과거 날짜 */
+
+            if (selectedDate < todayString) {
+
+                button.disabled = true;
+
+                return;
+
+            }
+
+
+            /* 오늘 날짜인 경우 */
+
+            if (selectedDate === todayString) {
+
+                const time =
+                    button.dataset.time.split(":");
+
+                const buttonHour =
+                    Number(time[0]);
+
+                const buttonMinute =
+                    Number(time[1]);
+
+
+                const buttonDate =
+                    new Date();
+
+                buttonDate.setHours(
+                    buttonHour,
+                    buttonMinute,
+                    0,
+                    0
+                );
+
+
+                /* 현재 시간보다 이전이면 비활성화 */
+
+                button.disabled =
+                    buttonDate <= now;
+
+            }
+
+            else {
+
+                /* 미래 날짜는 전부 활성화 */
+
+                button.disabled = false;
+
+            }
+
+        }
+    );
+
+
+    selectedTime = null;
+
+
+    if (selectedTimeText) {
+
+        selectedTimeText.textContent =
+            "선택 안됨";
+
+    }
+
+}
+
+
+/* =========================
+   날짜 초기 설정
+========================= */
+
+if (reservationDate) {
+
+    const todayString =
+        getTodayString();
+
+
+    /* 과거 날짜 선택 방지 */
 
     reservationDate.min =
         todayString;
+
+
+    /* 혹시 기존 값이 과거 날짜면 제거 */
+
+    if (
+        reservationDate.value &&
+        reservationDate.value < todayString
+    ) {
+
+        reservationDate.value = "";
+
+    }
+
+
+    updateTimeButtons();
 
 
     reservationDate.addEventListener(
         "change",
         function () {
 
+            const selectedDate =
+                reservationDate.value;
+
+            const currentToday =
+                getTodayString();
+
+
+            /* 과거 날짜 강제 차단 */
+
             if (
-                selectedDateText
+                selectedDate &&
+                selectedDate < currentToday
             ) {
 
-                selectedDateText.textContent =
-                    reservationDate.value ||
-                    "선택 안됨";
+                alert(
+                    "지난 날짜는 선택할 수 없습니다."
+                );
 
-            }
+                reservationDate.value = "";
 
+                if (selectedDateText) {
 
-            /* 기존 시간 선택 초기화 */
-
-            selectedTime = null;
-
-
-            timeButtons.forEach(
-                function (button) {
-
-                    button.classList.remove(
-                        "active"
-                    );
-
-
-                    button.disabled =
-                        !reservationDate.value;
+                    selectedDateText.textContent =
+                        "선택 안됨";
 
                 }
-            );
+
+                updateTimeButtons();
+
+                return;
+
+            }
 
 
-            if (
-                selectedTimeText
-            ) {
+            if (selectedDateText) {
 
-                selectedTimeText.textContent =
+                selectedDateText.textContent =
+                    selectedDate ||
                     "선택 안됨";
 
             }
+
+
+            updateTimeButtons();
 
         }
     );
@@ -882,6 +1010,13 @@ timeButtons.forEach(
         button.addEventListener(
             "click",
             function () {
+
+                /* 비활성 버튼 방지 */
+
+                if (button.disabled) {
+                    return;
+                }
+
 
                 timeButtons.forEach(
                     function (item) {
@@ -903,9 +1038,7 @@ timeButtons.forEach(
                     button.dataset.time;
 
 
-                if (
-                    selectedTimeText
-                ) {
+                if (selectedTimeText) {
 
                     selectedTimeText.textContent =
                         selectedTime;
@@ -929,8 +1062,16 @@ if (reservationSubmit) {
         "click",
         function () {
 
+            if (!reservationDate) {
+                return;
+            }
+
+
             const selectedDate =
                 reservationDate.value;
+
+            const todayString =
+                getTodayString();
 
 
             if (!selectedDate) {
@@ -944,6 +1085,23 @@ if (reservationSubmit) {
             }
 
 
+            /* 과거 날짜 최종 방어 */
+
+            if (selectedDate < todayString) {
+
+                alert(
+                    "지난 날짜는 예약할 수 없습니다."
+                );
+
+                reservationDate.value = "";
+
+                updateTimeButtons();
+
+                return;
+
+            }
+
+
             if (!selectedTime) {
 
                 alert(
@@ -951,6 +1109,41 @@ if (reservationSubmit) {
                 );
 
                 return;
+
+            }
+
+
+            /* 오늘이면 선택 시간이 이미 지났는지 다시 검사 */
+
+            if (selectedDate === todayString) {
+
+                const time =
+                    selectedTime.split(":");
+
+                const selectedDateTime =
+                    new Date();
+
+                selectedDateTime.setHours(
+                    Number(time[0]),
+                    Number(time[1]),
+                    0,
+                    0
+                );
+
+
+                if (
+                    selectedDateTime <= new Date()
+                ) {
+
+                    alert(
+                        "이미 지난 시간은 예약할 수 없습니다."
+                    );
+
+                    updateTimeButtons();
+
+                    return;
+
+                }
 
             }
 

@@ -600,6 +600,7 @@ a {
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 2px;
+    white-space: nowrap;
 }
 .map-header h2 {
     margin: 0;
@@ -2631,9 +2632,7 @@ a {
     font-size: 12px;
     font-weight: 700;
 }
-.related-card div {
-    flex: 1;
-}
+
 .related-card > strong {
     font-size: 24px;
     font-weight: 400;
@@ -3470,9 +3469,11 @@ a {
     }
     body:not(.detail-page) #regionDescription {
         font-size: 12px;
+        white-space: nowrap;
+        transform: translateX(-15px);
     }
     body:not(.detail-page) .map {
-        height: 440px;
+        height: 400px;
     }
     /* -------------------------
        공지사항 / FAQ
@@ -3585,7 +3586,7 @@ a {
        FOOTER / TOP
     ------------------------- */
     body:not(.detail-page) .footer {
-        padding: 56px 0;
+        padding: 68px 0;
     }
     body:not(.detail-page) .footer-inner {
         gap: 40px;
@@ -3599,14 +3600,14 @@ a {
         font-size: 12px;
     }
     body:not(.detail-page) .footer-menu {
-        gap: 20px;
-        margin-bottom: 20px;
+        gap: 28px;
+        margin-bottom: 24px;
     }
     body:not(.detail-page) .footer-menu a {
         font-size: 12px;
     }
     body:not(.detail-page) .footer-copy {
-        font-size: 10px;
+        font-size: 11px;
     }
     body:not(.detail-page) .top-button {
         right: 24px;
@@ -3814,24 +3815,25 @@ a {
     }
 
     body:not(.detail-page) .about-section {
-        margin-top: 70px;
-        margin-bottom: 70px;
-        padding-top: 60px;
-        padding-bottom: 60px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+
+        padding-top: 45px;
+        padding-bottom: 45px;
     }
 
     body:not(.detail-page) .notice-section {
-        margin-top: 65px;
-        margin-bottom: 55px;
+        margin-top: 60px;
+        margin-bottom: 50px;
     }
 
     body:not(.detail-page) .resident-support-summary {
-        margin-top: 55px;
-        margin-bottom: 55px;
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
 
     body:not(.detail-page) .related-section {
-        padding-top: 55px;
+        padding-top: 45px;
     }
 }
 
