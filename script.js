@@ -87,11 +87,11 @@ menuOverlay.addEventListener(
 const regionData = {
 
     공주: {
-        description: "공주 지역의 대표 위치입니다.",
+        description: "공주 지역의 소통쉼터 위치입니다.",
         shelters: [
             {
-                name: "공주시청",
-                address: "충청남도 공주시 봉황로 1",
+                name: "공주시 다가가는 소통쉼터",
+                address: "충청남도 공주시 신관로 38",
                 hours: "운영시간 확인 중"
             }
         ]
@@ -687,8 +687,8 @@ if (
 const regionMapData = {
 
     공주: {
-        lat: 36.4465,
-        lng: 127.1190,
+        lat: 36.470022,
+        lng: 127.132228,
         level: 6
     },
 
@@ -1245,6 +1245,16 @@ const noticeModalContent =
         "noticeModalContent"
     );
 
+const noticeModalFile =
+    document.getElementById(
+        "noticeModalFile"
+    );
+
+const noticeFileLink =
+    document.getElementById(
+        "noticeFileLink"
+    );
+
 
 noticeItems.forEach(
     function (item) {
@@ -1264,6 +1274,34 @@ noticeItems.forEach(
 
                 noticeModalContent.textContent =
                     item.dataset.content;
+
+                    const file =
+                        item.dataset.file;
+
+                    const fileName =
+                        item.dataset.fileName;
+
+                    if (file && fileName) {
+
+                        noticeModalFile.style.display =
+                            "flex";
+
+                        noticeFileLink.href =
+                            file;
+
+                        noticeFileLink.textContent =
+                            fileName;
+
+                    } else {
+
+                        noticeModalFile.style.display =
+                            "none";
+
+                        noticeFileLink.removeAttribute(
+                            "href"
+                        );
+
+                    }
 
 
                 noticeModal.classList.add(

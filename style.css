@@ -4211,3 +4211,49 @@ a {
     height: auto;
     display: block;
 }
+
+/* =========================
+   공지사항 첨부파일
+========================= */
+
+.notice-modal-file {
+    margin-top: 28px;
+    padding: 18px 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    background: #f3fbf9;
+
+    border: 1px solid #d9eeea;
+    border-radius: 10px;
+}
+
+.notice-modal-file > span {
+    flex-shrink: 0;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #0f8f7d;
+}
+
+.notice-modal-file > span::before {
+    content: "📎";
+    margin-right: 7px;
+}
+
+.notice-modal-file a {
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #222;
+
+    text-decoration: none;
+}
+
+.notice-modal-file a:hover {
+    color: #0f8f7d;
+    text-decoration: underline;
+}
