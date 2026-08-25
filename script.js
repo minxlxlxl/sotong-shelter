@@ -901,9 +901,7 @@ function updateKakaoMap(regionName) {
                                     );
 
 
-                                moveWithLoading(
-                                    url
-                                );
+                                window.location.href = url;
 
                             }
                         );
@@ -1100,9 +1098,7 @@ serviceButtons.forEach(
                     encodeURIComponent(service);
 
 
-                moveWithLoading(
-                    url
-                );
+                window.location.href = url;
             }
         );
 
@@ -1203,39 +1199,6 @@ revealElements.forEach(
     }
 );
 
-/* =========================
-   페이지 전환 로딩
-========================= */
-
-function moveWithLoading(url) {
-
-    const pageLoader =
-        document.getElementById(
-            "pageLoader"
-        );
-
-
-    if (pageLoader) {
-
-        pageLoader.classList.add(
-            "active"
-        );
-
-    }
-
-
-    setTimeout(
-        function () {
-
-            window.location.href =
-                url;
-
-        },
-
-        650
-    );
-
-}
 
 /* =========================
    공지사항 팝업
@@ -1826,3 +1789,27 @@ faqSummaryItems.forEach(
 
     }
 );
+
+const detailMenuLinks =
+    document.querySelectorAll(".detail-menu-link");
+
+detailMenuLinks.forEach(function (link) {
+
+    link.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const currentRegion =
+            document.getElementById("headerRegionName")
+                ?.textContent
+                .trim() || "공주";
+
+        const tab =
+            link.dataset.tab;
+
+        window.location.href =
+            `detail.html?region=${encodeURIComponent(currentRegion)}&tab=${encodeURIComponent(tab)}`;
+
+    });
+
+});
