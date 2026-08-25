@@ -1751,19 +1751,21 @@ heroRegionSearchButton.addEventListener(
         }
 
 
-        /* 지도까지 부드럽게 이동 */
-
-        const mapContainer =
+        const regionSection =
             document.querySelector(
-                ".map-container"
+                ".region-section"
             );
 
+        if (regionSection) {
 
-        if (mapContainer) {
+            const y =
+                regionSection.getBoundingClientRect().top +
+                window.scrollY -
+                110;
 
-            mapContainer.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
+            window.scrollTo({
+                top: y,
+                behavior: "smooth"
             });
 
         }
