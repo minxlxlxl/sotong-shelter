@@ -86,6 +86,17 @@ menuOverlay.addEventListener(
 
 const regionData = {
 
+    공주: {
+        description: "공주 지역의 대표 위치입니다.",
+        shelters: [
+            {
+                name: "공주시청",
+                address: "충청남도 공주시 봉황로 1",
+                hours: "운영시간 확인 중"
+            }
+        ]
+    },
+
     평창: {
         description: "평창 지역의 소통쉼터 위치입니다.",
         shelters: [
@@ -675,40 +686,46 @@ if (
 
 const regionMapData = {
 
+    공주: {
+        lat: 36.4465,
+        lng: 127.1190,
+        level: 6
+    },
+
     평창: {
         lat: 37.3708,
         lng: 128.3900,
-        level: 10
+        level: 6
     },
 
     태백: {
         lat: 37.1641,
         lng: 128.9856,
-        level: 10
+        level: 6
     },
 
     홍천: {
         lat: 37.6972,
         lng: 127.8889,
-        level: 10
+        level: 6
     },
 
     괴산: {
         lat: 36.8153,
         lng: 127.7867,
-        level: 10
+        level: 6
     },
 
     전주: {
         lat: 35.8242,
         lng: 127.1480,
-        level: 10
+        level: 6
     },
 
     고창: {
         lat: 35.4358,
         lng: 126.7019,
-        level: 10
+        level: 6
     }
 
 };
@@ -978,7 +995,7 @@ function initKakaoMap() {
 
             const mapData =
                 regionMapData[
-                    "평창"
+                    "공주"
                 ];
 
 
@@ -1014,7 +1031,7 @@ function initKakaoMap() {
 
 
             updateKakaoMap(
-                "평창"
+                "공주"
             );
 
         }
@@ -1073,7 +1090,7 @@ serviceButtons.forEach(
                 const region =
                     activeRegion
                         ? activeRegion.dataset.region
-                        : "평창";
+                        : "공주";
 
 
                 const url =
@@ -1633,6 +1650,10 @@ const heroRegionData = {
         "평창",
         "태백",
         "홍천"
+    ],
+
+    충남: [
+        "공주"
     ],
 
     충북: [

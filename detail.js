@@ -9,7 +9,7 @@ const params =
 
 
 const region =
-    params.get("region") || "평창";
+    params.get("region") || "공주";
 
 const selectedTab =
     params.get("tab") || "status";
@@ -21,6 +21,52 @@ const selectedTab =
 ========================= */
 
 const shelterData = {
+
+    공주: {
+
+        name:
+            "공주 소통쉼터",
+
+        address:
+            "충청남도 공주시 봉황로 1",
+
+        hours:
+            "운영시간 확인 중",
+
+        phone:
+            "전화번호 확인 중",
+
+        route:
+            "공주시청을 대표 위치로 안내합니다.",
+
+        lat:
+            36.4465,
+
+        lng:
+            127.1190,
+
+        overview:
+            "공주 지역 주민과 소통하기 위한 공간입니다.",
+
+        jurisdiction:
+            "공주시 및 인근 지역",
+
+        statusTitle:
+            "공주 소통쉼터 조성 사업",
+
+        statusText:
+            "공주 지역 주민과의 소통을 위한 대표 위치로 공주시청을 안내하고 있습니다.",
+
+        phase:
+            "준비 중",
+
+        openDate:
+            "확인 중",
+
+        operator:
+            "운영기관 확인 중"
+
+    },
 
     평창: {
 
@@ -308,7 +354,7 @@ const shelterData = {
 
 const shelter =
     shelterData[region] ||
-    shelterData["평창"];
+    shelterData["공주"];
 
     /* =========================
         비어 있는 정보 기본값
@@ -654,7 +700,6 @@ if (initialPanel) {
 }
 
 
-
 /* =========================
    상세페이지 지도
 ========================= */
@@ -664,43 +709,99 @@ const mapContainer =
         "detailMap"
     );
 
+let detailMap = null;
 
-const mapOptions = {
 
-    center:
+/* =========================
+   카카오맵 안전 초기화
+========================= */
+
+function initDetailMap() {
+
+    /* 지도 영역이 없으면 종료 */
+
+    if (!mapContainer) {
+        return;
+    }
+
+
+    /* 카카오 SDK가 없으면 지도만 포기 */
+
+    if (
+        typeof window.kakao === "undefined" ||
+        !window.kakao.maps
+    ) {
+
+        console.warn(
+            "카카오맵 SDK를 사용할 수 없어 지도 기능만 비활성화됩니다."
+        );
+
+        mapContainer.innerHTML = `
+            <div style="
+                width:100%;
+                height:100%;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                text-align:center;
+                color:#888;
+                font-size:14px;
+                line-height:1.7;
+                background:#f7f7f7;
+            ">
+                현재 브라우저에서 지도를 불러올 수 없습니다.<br>
+                다른 브라우저에서 다시 확인해주세요.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    const mapOptions = {
+
+        center:
+            new kakao.maps.LatLng(
+                shelter.lat,
+                shelter.lng
+            ),
+
+        level: 6
+
+    };
+
+
+    detailMap =
+        new kakao.maps.Map(
+            mapContainer,
+            mapOptions
+        );
+
+
+    const markerPosition =
         new kakao.maps.LatLng(
             shelter.lat,
             shelter.lng
-        ),
-
-    level: 6
-
-};
+        );
 
 
-const detailMap =
-    new kakao.maps.Map(
-        mapContainer,
-        mapOptions
-    );
+    new kakao.maps.Marker({
+
+        position:
+            markerPosition,
+
+        map:
+            detailMap
+
+    });
+
+}
 
 
-const markerPosition =
-    new kakao.maps.LatLng(
-        shelter.lat,
-        shelter.lng
-    );
+/* 지도 초기화 */
 
+initDetailMap();
 
-new kakao.maps.Marker({
-
-    position:
-        markerPosition,
-
-    map:
-        detailMap
-
-});
 
 /* =========================
    지도에서 보기 버튼
@@ -718,8 +819,22 @@ if (mapLinkButton) {
         "click",
         function () {
 
+            /* 지도 사용 불가 */
 
-            /* 지도 중심을 쉼터 위치로 이동 */
+            if (
+                !detailMap ||
+                typeof window.kakao === "undefined" ||
+                !window.kakao.maps
+            ) {
+
+                alert(
+                    "현재 브라우저에서는 지도 기능을 사용할 수 없습니다."
+                );
+
+                return;
+
+            }
+
 
             detailMap.setCenter(
 
@@ -731,17 +846,13 @@ if (mapLinkButton) {
             );
 
 
-            /* 페이지 위쪽 지도까지 이동 */
+            mapContainer.scrollIntoView({
 
-            document
-                .getElementById("detailMap")
-                .scrollIntoView({
+                behavior: "smooth",
 
-                    behavior: "smooth",
+                block: "center"
 
-                    block: "center"
-
-                });
+            });
 
         }
     );

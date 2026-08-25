@@ -1230,29 +1230,35 @@ a {
     margin: 0 auto;
     padding: 50px 0 100px;
 }
-/* 지도 + 개요 */
+
 .detail-overview {
     display: grid;
+
     grid-template-columns:
-        0.95fr
-        1.25fr;
-    gap: 50px;
-    min-height: 500px;
-    padding: 45px;
+        0.9fr
+        1.1fr;
+
+    gap: 38px;
+    min-height: 380px;
+    padding: 32px;
+
     border: 1px solid #e8e8e8;
-    border-radius: 26px;
+    border-radius: 22px;
+
     background:
         linear-gradient(
             135deg,
             #ffffff 0%,
             #f8fbfb 100%
         );
+
     box-shadow:
-        0 18px 45px
+        0 14px 35px
         rgba(0, 0, 0, 0.05);
 }
+
 .detail-map-area {
-    min-height: 410px;
+    min-height: 320px;
     overflow: hidden;
     border: 1px solid #e5e5e5;
     border-radius: 20px;
@@ -1263,7 +1269,7 @@ a {
 }
 #detailMap {
     width: 100%;
-    height: 410px;
+    height: 320px;
 }
 /* 아래 내용 */
 .detail-content {
@@ -3327,7 +3333,7 @@ a {
     body:not(.detail-page) .related-inner,
     body:not(.detail-page) .footer-inner {
         width: 92%;
-        max-width: 1220px;
+        max-width: 1300px;
     }
     /* -------------------------
        쉼터 소개
@@ -3472,6 +3478,7 @@ a {
         white-space: nowrap;
         transform: translateX(-15px);
     }
+
     body:not(.detail-page) .map {
         height: 400px;
     }
@@ -3773,8 +3780,8 @@ a {
 @media (min-width: 1201px) {
 
     body:not(.detail-page) {
-        --main-content-width: 1220px;
-        --main-content-gap: 80px;
+        --main-content-width: 1360px;
+        --main-content-gap: 60px;
         --main-content-shift: -100px;
     }
 
@@ -4021,4 +4028,26 @@ a {
         width: 100%;
         flex: none;
     }
+}
+
+@media (min-width: 1201px) {
+
+    body:not(.detail-page) .map-side {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    body:not(.detail-page) .map-side .map {
+        flex: 1;
+        height: auto;
+        min-height: 560px;
+    }
+
+    body:not(.detail-page) #kakaoMap {
+        width: 100%;
+        height: 100%;
+        min-height: 560px;
+    }
+
 }
