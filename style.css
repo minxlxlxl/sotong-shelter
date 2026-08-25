@@ -1526,7 +1526,7 @@ a {
 }
 .facility-image {
     width: 100%;
-    height: 230px;
+    height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4401,4 +4401,11 @@ a {
 
 .compensation-popup-box button:hover {
     background: #087976;
+}
+
+.facility-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
