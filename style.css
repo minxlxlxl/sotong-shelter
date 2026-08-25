@@ -4100,3 +4100,31 @@ a {
     }
 
 }
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+
+    body:not(.detail-page) .hero-slider,
+    body:not(.detail-page) .region-section,
+    body:not(.detail-page) .about-section,
+    body:not(.detail-page) .notice-section,
+    body:not(.detail-page) .resident-support-summary,
+    body:not(.detail-page) .related-inner {
+        left: 0 !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    body:not(.detail-page) {
+        --main-content-shift: 0px;
+    }
+}
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+
+    body:not(.detail-page) {
+        --main-content-width: 1180px;
+        --main-content-gap: 40px;
+    }
+
+}
