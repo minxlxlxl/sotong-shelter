@@ -4128,3 +4128,37 @@ a {
     }
 
 }
+
+/* =========================================
+   사이드바 제거 후 PC / 노트북 완전 중앙 정렬
+========================================= */
+
+@media (min-width: 1201px) {
+
+    body:not(.detail-page) .desktop-sidebar {
+        display: none !important;
+    }
+
+    body:not(.detail-page) .header,
+    body:not(.detail-page) main,
+    body:not(.detail-page) .footer {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    body:not(.detail-page) .hero {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 20px 24px 0 !important;
+    }
+
+    body:not(.detail-page) .hero-slider {
+        width: 92% !important;
+        max-width: 1600px !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+}
