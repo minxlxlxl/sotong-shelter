@@ -4310,3 +4310,95 @@ a {
 .status-card:hover .status-link-arrow {
     transform: translateX(5px);
 }
+
+/* =========================
+   보상 상담 팝업
+========================= */
+
+.compensation-card {
+    cursor: pointer;
+}
+
+.compensation-popup {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.25);
+
+    z-index: 9999;
+}
+
+.compensation-popup.active {
+    display: flex;
+}
+
+.compensation-popup-box {
+    width: min(400px, calc(100% - 40px));
+
+    padding: 36px 32px 30px;
+
+    text-align: center;
+
+    background: #fff;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.compensation-popup-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 18px;
+
+    color: #0b8f8c;
+    font-size: 22px;
+    font-weight: 700;
+
+    background: #eaf7f6;
+
+    border-radius: 50%;
+}
+
+.compensation-popup-box h3 {
+    margin: 0 0 10px;
+
+    font-size: 20px;
+}
+
+.compensation-popup-box p {
+    margin: 0 0 25px;
+
+    color: #666;
+    font-size: 14px;
+}
+
+.compensation-popup-box button {
+    min-width: 100px;
+
+    padding: 11px 24px;
+
+    color: #fff;
+    font-weight: 700;
+
+    background: #0b8f8c;
+
+    border: 0;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.compensation-popup-box button:hover {
+    background: #087976;
+}

@@ -1415,3 +1415,70 @@ if (topButton) {
     );
 
 }
+
+/* =========================
+   보상 상담 안내 팝업
+========================= */
+
+const compensationCard =
+    document.getElementById(
+        "compensationCard"
+    );
+
+const compensationPopup =
+    document.getElementById(
+        "compensationPopup"
+    );
+
+const compensationPopupClose =
+    document.getElementById(
+        "compensationPopupClose"
+    );
+
+
+if (
+    compensationCard &&
+    compensationPopup &&
+    compensationPopupClose
+) {
+
+    compensationCard.addEventListener(
+        "click",
+        function () {
+
+            compensationPopup.classList.add(
+                "active"
+            );
+
+        }
+    );
+
+
+    compensationPopupClose.addEventListener(
+        "click",
+        function () {
+
+            compensationPopup.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+
+    compensationPopup.addEventListener(
+        "click",
+        function (event) {
+
+            if (event.target === compensationPopup) {
+
+                compensationPopup.classList.remove(
+                    "active"
+                );
+
+            }
+
+        }
+    );
+
+}
