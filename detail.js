@@ -31,10 +31,10 @@ const shelterData = {
             "충청남도 공주시 신관로 38, 2층",
 
         hours:
-            "운영시간 확인 중",
+            "개소 전",
 
         phone:
-            "전화번호 확인 중",
+            "확인 중",
 
         route:
             "공주시청을 대표 위치로 안내합니다.",
@@ -46,7 +46,7 @@ const shelterData = {
             127.1190,
 
         overview:
-            "공주 지역 주민과 소통하기 위한 공간입니다.",
+            "공주시 중심부에서 차량으로 이동 가능합니다.",
 
         jurisdiction:
             "공주시 및 인근 지역",
@@ -77,10 +77,10 @@ const shelterData = {
             "강원특별자치도 평창군 평창읍 문화길 14-6",
 
         hours:
-            "운영시간 확인 중",
+            "09:00 ~ 17:30",
 
         phone:
-            "전화번호 확인 중",
+            "070-4353-3890",
 
         route:
             "평창읍 중심부에서 차량으로 이동 가능합니다.",
@@ -1482,3 +1482,135 @@ if (
     );
 
 }
+
+/* =========================
+   지역별 상태 카드 데이터
+========================= */
+
+const regionStatusData = {
+
+    공주: {
+        phase: "개소 준비 중",
+        area: "공주시 및 인근 지역",
+        openDate: "2026년12월 예정",
+        operator: "운영기관 확인 중"
+    },
+
+    평창: {
+        phase: "운영 중",
+        area: "평창군 및 인근 지역",
+        openDate: "2020년 5월",
+        operator: "운영기관 확인 중"
+    },
+
+    태백: {
+        phase: "운영 중",
+        area: "태백시 및 인근 지역",
+        openDate: "2023년",
+        operator: "운영기관 확인 중"
+    },
+
+    홍천: {
+        phase: "운영 중",
+        area: "홍천군 및 인근 지역",
+        openDate: "2022년 3월 17일",
+        operator: "운영기관 확인 중"
+    },
+
+    괴산: {
+        phase: "운영 중",
+        area: "괴산군 및 인근 지역",
+        openDate: "2025년",
+        operator: "운영기관 확인 중"
+    },
+
+    전주: {
+        phase: "운영 중",
+        area: "전주시 및 인근 지역",
+        openDate: "2025년 7월 9일",
+        operator: "운영기관 확인 중"
+    },
+
+    고창: {
+        phase: "운영 중",
+        area: "고창군 및 인근 지역",
+        openDate: "2026년 개소 예정",
+        operator: "운영기관 확인 중"
+    }
+
+};
+
+
+/* =========================
+   상태 카드 적용
+========================= */
+
+function updateRegionStatus(regionName) {
+
+    const data =
+        regionStatusData[regionName];
+
+    if (!data) {
+        return;
+    }
+
+
+    const statusPhase =
+        document.getElementById(
+            "statusPhase"
+        );
+
+    const statusArea =
+        document.getElementById(
+            "statusArea"
+        );
+
+    const statusOpenDate =
+        document.getElementById(
+            "statusOpenDate"
+        );
+
+    const statusOperator =
+        document.getElementById(
+            "statusOperator"
+        );
+
+
+    if (statusPhase) {
+        statusPhase.textContent =
+            data.phase;
+    }
+
+    if (statusArea) {
+        statusArea.textContent =
+            data.area;
+    }
+
+    if (statusOpenDate) {
+        statusOpenDate.textContent =
+            data.openDate;
+    }
+
+    if (statusOperator) {
+        statusOperator.textContent =
+            data.operator;
+    }
+
+}
+
+
+/* =========================
+   URL 지역 읽어서 적용
+========================= */
+
+const detailParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const detailRegion =
+    detailParams.get("region") || "공주";
+
+updateRegionStatus(
+    detailRegion
+);
