@@ -253,9 +253,13 @@ a {
 .header-region-dot {
     width: 6px;
     height: 6px;
+
+    background: #0b8f8c;
     border-radius: 50%;
-    background: var(--primary);
+
+    flex-shrink: 0;
 }
+
 /* =========================
    상단 상담예약 버튼
 ========================= */
@@ -4410,47 +4414,6 @@ a {
     display: block;
 }
 
-/* =========================
-   모바일 - 메인 지역 검색
-========================= */
-
-@media (max-width: 768px) {
-
-    .hero-region-search {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 14px;
-        padding: 18px;
-    }
-
-    .hero-region-search-title {
-        width: 100%;
-    }
-
-    .hero-region-search-form {
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .hero-region-search-form select {
-        width: 100%;
-    }
-
-    #heroRegionSearchButton {
-        width: 100%;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        gap: 8px;
-    }
-
-}
-
 /* PC에서는 햄버거 숨김 */
 .menu-button {
     display: none;
@@ -4471,4 +4434,89 @@ a {
         }
 
     }
+}
+
+/* =========================
+   상단 지역 선택 드롭다운
+========================= */
+
+.header-region {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    cursor: pointer;
+}
+
+.header-region-arrow {
+    width: 0;
+    height: 0;
+
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 5px solid #0b8f8c;
+
+    margin-left: 2px;
+
+    transition: transform 0.2s ease;
+}
+
+.header-region.active .header-region-arrow {
+    transform: rotate(180deg);
+}
+
+.header-region-dropdown {
+    position: absolute;
+
+    top: calc(100% + 10px);
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    min-width: 120px;
+
+    display: none;
+    flex-direction: column;
+
+    padding: 8px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.12);
+
+    z-index: 9999;
+}
+
+.header-region.active .header-region-dropdown {
+    display: flex;
+}
+
+.header-region-dropdown button {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    text-align: left;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #333;
+    background: transparent;
+
+    border: 0;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.header-region-dropdown button:hover {
+    color: #0b8f8c;
+    background: #eef9f8;
 }

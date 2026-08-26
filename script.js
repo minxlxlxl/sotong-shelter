@@ -1851,3 +1851,98 @@ detailMenuLinks.forEach(function (link) {
     });
 
 });
+
+/* =========================
+   상단 지역 선택 드롭다운
+========================= */
+
+const headerRegionButton =
+    document.getElementById(
+        "headerRegionButton"
+    );
+
+const headerRegionDropdown =
+    document.getElementById(
+        "headerRegionDropdown"
+    );
+
+const headerRegionName =
+    document.getElementById(
+        "headerRegionName"
+    );
+
+const headerRegionButtons =
+    document.querySelectorAll(
+        ".header-region-dropdown button"
+    );
+
+
+if (headerRegionButton) {
+
+    headerRegionButton.addEventListener(
+        "click",
+        function (event) {
+
+            event.stopPropagation();
+
+            headerRegionButton.classList.toggle(
+                "active"
+            );
+
+        }
+    );
+
+}
+
+
+headerRegionButtons.forEach(
+    function (button) {
+
+        button.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+                const selectedRegion =
+                    button.dataset.region;
+
+                headerRegionName.textContent =
+                    selectedRegion;
+
+                headerRegionButton.classList.remove(
+                    "active"
+                );
+
+                const targetTab =
+                    document.querySelector(
+                        `.region-tab[data-region="${selectedRegion}"]`
+                    );
+
+                if (targetTab) {
+                    targetTab.click();
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* 바깥 클릭 시 닫기 */
+
+document.addEventListener(
+    "click",
+    function () {
+
+        if (headerRegionButton) {
+
+            headerRegionButton.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);
