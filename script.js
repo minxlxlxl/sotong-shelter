@@ -36,6 +36,7 @@ function closeSideMenu() {
 
 }
 
+
 /* =========================
    사이드 메뉴 링크 클릭 시 닫기
 ========================= */
@@ -221,10 +222,12 @@ function changeRegion(regionName) {
 
     }
 
+
     const desktopRegionStatus =
         document.getElementById(
             "desktopRegionStatus"
         );
+
 
     if (desktopRegionStatus) {
 
@@ -233,10 +236,12 @@ function changeRegion(regionName) {
 
     }
 
+
     const headerReservationButton =
         document.querySelector(
             ".header-reservation-button"
         );
+
 
     if (headerReservationButton) {
 
@@ -250,10 +255,12 @@ function changeRegion(regionName) {
 
     }
 
+
     const desktopReservationButton =
         document.querySelector(
             ".desktop-reservation-button"
         );
+
 
     if (desktopReservationButton) {
 
@@ -262,10 +269,12 @@ function changeRegion(regionName) {
             encodeURIComponent(regionName) +
             "&tab=reservation";
 
+
         const reservationText =
             desktopReservationButton.querySelector(
                 "span"
             );
+
 
         if (reservationText) {
 
@@ -276,10 +285,12 @@ function changeRegion(regionName) {
 
     }
 
+
     const headerRegionName =
         document.getElementById(
             "headerRegionName"
         );
+
 
     if (headerRegionName) {
 
@@ -287,6 +298,7 @@ function changeRegion(regionName) {
             regionName;
 
     }
+
 
     desktopRegionButtons.forEach(
         function (button) {
@@ -305,7 +317,8 @@ function changeRegion(regionName) {
     if (regionDescription) {
 
         regionDescription.textContent =
-            regionName + " 지역의 사업지역과 관련 정보를 확인할 수 있습니다.";
+            regionName +
+            " 지역의 사업지역과 관련 정보를 확인할 수 있습니다.";
 
     }
 
@@ -320,10 +333,12 @@ function changeRegion(regionName) {
 
     }
 
+
     const mainProjectArea =
         document.getElementById(
             "mainProjectArea"
         );
+
 
     const mainProjectLink =
         document.getElementById(
@@ -363,8 +378,6 @@ regionTabs.forEach(
             function () {
 
 
-                /* 모든 버튼 비활성화 */
-
                 regionTabs.forEach(
                     function (item) {
 
@@ -376,20 +389,14 @@ regionTabs.forEach(
                 );
 
 
-                /* 현재 버튼 활성화 */
-
                 tab.classList.add(
                     "active"
                 );
 
 
-                /* 지역 이름 */
-
                 const regionName =
                     tab.dataset.region;
 
-
-                /* 지역 변경 */
 
                 changeRegion(
                     regionName
@@ -431,8 +438,6 @@ const modalAddress =
         "modalAddress"
     );
 
-
-/* 기존 HTML 마커가 있을 경우 */
 
 markers.forEach(
     function (marker) {
@@ -480,7 +485,7 @@ markers.forEach(
 
 
 /* =========================
-   팝업 닫기
+   쉼터 팝업 닫기
 ========================= */
 
 if (modalClose) {
@@ -499,9 +504,7 @@ if (modalClose) {
 }
 
 
-/* =========================
-   팝업 바깥쪽 클릭
-========================= */
+/* 팝업 바깥 클릭 */
 
 if (shelterModal) {
 
@@ -544,6 +547,21 @@ document.addEventListener(
             if (shelterModal) {
 
                 shelterModal.classList.remove(
+                    "active"
+                );
+
+            }
+
+
+            const activeNoticeModal =
+                document.getElementById(
+                    "noticeModal"
+                );
+
+
+            if (activeNoticeModal) {
+
+                activeNoticeModal.classList.remove(
                     "active"
                 );
 
@@ -625,6 +643,7 @@ function showSlide(index) {
 
 }
 
+
 /* 아래 점 클릭 */
 
 dots.forEach(
@@ -649,7 +668,9 @@ dots.forEach(
 );
 
 
-/* 자동 슬라이드 */
+/* =========================
+   자동 슬라이드
+========================= */
 
 if (
     slides.length > 0
@@ -674,6 +695,7 @@ if (
             showSlide(next);
 
         },
+
         5000
     );
 
@@ -729,7 +751,6 @@ const regionMapData = {
     }
 
 };
-
 
 /* =========================
    카카오맵 지역 변경
@@ -795,13 +816,11 @@ function updateKakaoMap(regionName) {
     }
 
 
-    /* 주소 검색 객체 */
+    /* 주소 검색 */
 
     const geocoder =
         new kakao.maps.services.Geocoder();
 
-
-    /* 쉼터별 주소 검색 */
 
     region.shelters.forEach(
         function (shelter) {
@@ -819,16 +838,12 @@ function updateKakaoMap(regionName) {
                         kakao.maps.services.Status.OK
                     ) {
 
-                        /* 주소 → 좌표 */
-
                         const position =
                             new kakao.maps.LatLng(
                                 result[0].y,
                                 result[0].x
                             );
 
-
-                        /* 마커 생성 */
 
                         const marker =
                             new kakao.maps.Marker({
@@ -846,8 +861,6 @@ function updateKakaoMap(regionName) {
                             marker
                         );
 
-
-                        /* 정보창 */
 
                         const infoWindow =
                             new kakao.maps.InfoWindow({
@@ -901,7 +914,8 @@ function updateKakaoMap(regionName) {
                                     );
 
 
-                                window.location.href = url;
+                                window.location.href =
+                                    url;
 
                             }
                         );
@@ -931,10 +945,6 @@ function updateKakaoMap(regionName) {
 
 function initKakaoMap() {
 
-    /*
-        SDK 확인
-    */
-
     if (
         typeof window.kakao ===
         "undefined"
@@ -962,10 +972,6 @@ function initKakaoMap() {
     }
 
 
-    /*
-        지도 영역
-    */
-
     const container =
         document.getElementById(
             "kakaoMap"
@@ -983,11 +989,6 @@ function initKakaoMap() {
     }
 
 
-    /*
-        카카오맵 SDK 로드 완료 후
-        실제 지도 생성
-    */
-
     kakao.maps.load(
         function () {
 
@@ -1001,11 +1002,8 @@ function initKakaoMap() {
 
                 center:
                     new kakao.maps.LatLng(
-
                         mapData.lat,
-
                         mapData.lng
-
                     ),
 
                 level:
@@ -1014,17 +1012,10 @@ function initKakaoMap() {
             };
 
 
-            /*
-                지도 생성
-            */
-
             kakaoMap =
                 new kakao.maps.Map(
-
                     container,
-
                     options
-
                 );
 
 
@@ -1057,6 +1048,7 @@ if (
     );
 
 }
+
 
 /* =========================
    메인 서비스 버튼
@@ -1098,12 +1090,15 @@ serviceButtons.forEach(
                     encodeURIComponent(service);
 
 
-                window.location.href = url;
+                window.location.href =
+                    url;
+
             }
         );
 
     }
 );
+
 
 /* =========================
    TOP 버튼
@@ -1122,14 +1117,18 @@ if (topButton) {
         function () {
 
             window.scrollTo({
+
                 top: 0,
+
                 behavior: "smooth"
+
             });
 
         }
     );
 
 }
+
 
 /* =========================
    스크롤 등장 애니메이션
@@ -1165,11 +1164,14 @@ const revealObserver =
             entries.forEach(
                 function (entry) {
 
-                    if (entry.isIntersecting) {
+                    if (
+                        entry.isIntersecting
+                    ) {
 
                         entry.target.classList.add(
                             "show"
                         );
+
 
                         revealObserver.unobserve(
                             entry.target
@@ -1200,9 +1202,9 @@ revealElements.forEach(
 );
 
 
-/* =========================
+/* =========================================
    공지사항 팝업
-========================= */
+========================================= */
 
 const noticeItems =
     document.querySelectorAll(
@@ -1245,10 +1247,12 @@ const noticeModalContent =
         "noticeModalContent"
     );
 
+
 const noticeModalFile =
     document.getElementById(
         "noticeModalFile"
     );
+
 
 const noticeFileLink =
     document.getElementById(
@@ -1256,57 +1260,162 @@ const noticeFileLink =
     );
 
 
+/* =========================
+   공지 클릭 → 팝업
+========================= */
+
 noticeItems.forEach(
     function (item) {
 
         item.addEventListener(
             "click",
-            function () {
+            function (event) {
 
-                noticeModalCategory.textContent =
+                /*
+                    기존 a 태그로 되어 있어도
+                    상세페이지로 이동하지 않고
+                    메인에서는 팝업으로 표시
+                */
+
+                event.preventDefault();
+
+
+                const category =
                     item.dataset.category;
 
-                noticeModalTitle.textContent =
+
+                const title =
                     item.dataset.title;
 
-                noticeModalDate.textContent =
+
+                const date =
                     item.dataset.date;
 
-                noticeModalContent.textContent =
+
+                const content =
                     item.dataset.content;
 
-                    const file =
-                        item.dataset.file;
 
-                    const fileName =
-                        item.dataset.fileName;
+                /*
+                    팝업 데이터가 없는 항목은
+                    아무 작업도 하지 않음
+                */
 
-                    if (file && fileName) {
+                if (
+                    !category ||
+                    !title ||
+                    !date ||
+                    !content
+                ) {
 
-                        noticeModalFile.style.display =
-                            "flex";
+                    return;
 
-                        noticeFileLink.href =
-                            file;
+                }
 
-                        noticeFileLink.textContent =
-                            fileName;
 
-                    } else {
+                if (noticeModalCategory) {
+
+                    noticeModalCategory.textContent =
+                        category;
+
+                }
+
+
+                if (noticeModalTitle) {
+
+                    noticeModalTitle.textContent =
+                        title;
+
+                }
+
+
+                if (noticeModalDate) {
+
+                    noticeModalDate.textContent =
+                        date;
+
+                }
+
+
+                if (noticeModalContent) {
+
+                    noticeModalContent.textContent =
+                        content;
+
+                }
+
+
+                /* =========================
+                   첨부파일
+                ========================= */
+
+                const file =
+                    item.dataset.file;
+
+
+                const fileName =
+                    item.dataset.fileName;
+
+
+                if (
+                    file &&
+                    fileName &&
+                    noticeModalFile &&
+                    noticeFileLink
+                ) {
+
+                    noticeModalFile.style.display =
+                        "flex";
+
+
+                    noticeFileLink.href =
+                        file;
+
+
+                    noticeFileLink.textContent =
+                        fileName;
+
+                } else {
+
+
+                    if (noticeModalFile) {
 
                         noticeModalFile.style.display =
                             "none";
+
+                    }
+
+
+                    if (noticeFileLink) {
 
                         noticeFileLink.removeAttribute(
                             "href"
                         );
 
+
+                        noticeFileLink.textContent =
+                            "";
+
                     }
 
+                }
 
-                noticeModal.classList.add(
-                    "active"
-                );
+
+                /* =========================
+                   팝업 열기
+                ========================= */
+
+                if (noticeModal) {
+
+                    noticeModal.classList.add(
+                        "active"
+                    );
+
+
+                    document.body.style.overflow =
+                        "hidden";
+
+                }
 
             }
         );
@@ -1315,14 +1424,29 @@ noticeItems.forEach(
 );
 
 
+/* =========================
+   공지 팝업 닫기
+========================= */
+
 function closeNoticeModal() {
+
+    if (!noticeModal) {
+        return;
+    }
+
 
     noticeModal.classList.remove(
         "active"
     );
 
+
+    document.body.style.overflow =
+        "";
+
 }
 
+
+/* X 버튼 */
 
 if (noticeModalClose) {
 
@@ -1334,6 +1458,8 @@ if (noticeModalClose) {
 }
 
 
+/* 배경 클릭 */
+
 if (noticeModal) {
 
     noticeModal.addEventListener(
@@ -1341,7 +1467,8 @@ if (noticeModal) {
         function (event) {
 
             if (
-                event.target === noticeModal
+                event.target ===
+                noticeModal
             ) {
 
                 closeNoticeModal();
@@ -1353,59 +1480,28 @@ if (noticeModal) {
 
 }
 
-/* =========================
-   공지사항 전체보기
-========================= */
 
-const noticeMore =
-    document.getElementById(
-        "noticeMore"
-    );
+/* ESC로 공지 팝업 닫기 */
 
+document.addEventListener(
+    "keydown",
+    function (event) {
 
-const noticeExtra =
-    document.getElementById(
-        "noticeExtra"
-    );
+        if (
+            event.key === "Escape" &&
+            noticeModal &&
+            noticeModal.classList.contains(
+                "active"
+            )
+        ) {
 
-
-if (
-    noticeMore &&
-    noticeExtra
-) {
-
-    noticeMore.addEventListener(
-        "click",
-        function () {
-
-            const isOpen =
-                noticeExtra.classList.toggle(
-                    "active"
-                );
-
-
-            noticeMore.classList.toggle(
-                "active",
-                isOpen
-            );
-
-
-            if (isOpen) {
-
-                noticeMore.childNodes[0].textContent =
-                    "접기 ";
-
-            } else {
-
-                noticeMore.childNodes[0].textContent =
-                    "전체보기 ";
-
-            }
+            closeNoticeModal();
 
         }
-    );
 
-}
+    }
+);
+
 
 /* =========================
    FAQ 아코디언
@@ -1424,6 +1520,11 @@ faqItems.forEach(
             item.querySelector(
                 ".faq-question"
             );
+
+
+        if (!question) {
+            return;
+        }
 
 
         question.addEventListener(
@@ -1449,7 +1550,7 @@ faqItems.forEach(
                 );
 
 
-                /* 기존에 닫혀 있던 질문이면 열기 */
+                /* 닫혀 있던 질문이면 열기 */
 
                 if (!isActive) {
 
@@ -1464,6 +1565,7 @@ faqItems.forEach(
 
     }
 );
+
 
 /* =========================
    PC 사이드바 현재 섹션 표시
@@ -1482,7 +1584,9 @@ desktopSidebarLinks.forEach(
     function (link) {
 
         const targetId =
-            link.getAttribute("href");
+            link.getAttribute(
+                "href"
+            );
 
 
         const section =
@@ -1494,8 +1598,11 @@ desktopSidebarLinks.forEach(
         if (section) {
 
             sidebarSections.push({
+
                 link: link,
+
                 section: section
+
             });
 
         }
@@ -1510,7 +1617,8 @@ function updateDesktopSidebarActive() {
         window.scrollY + 180;
 
 
-    let currentItem = null;
+    let currentItem =
+        null;
 
 
     sidebarSections.forEach(
@@ -1521,7 +1629,8 @@ function updateDesktopSidebarActive() {
                 scrollPosition
             ) {
 
-                currentItem = item;
+                currentItem =
+                    item;
 
             }
 
@@ -1562,6 +1671,7 @@ window.addEventListener(
     updateDesktopSidebarActive
 );
 
+
 /* =========================
    PC 사이드바 지역 선택
 ========================= */
@@ -1593,16 +1703,23 @@ desktopRegionButtons.forEach(
 
                     targetTab.click();
 
+
                     const regionSection =
                         document.querySelector(
                             ".region-section"
                         );
 
+
                     if (regionSection) {
 
                         regionSection.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start"
+
+                            behavior:
+                                "smooth",
+
+                            block:
+                                "start"
+
                         });
 
                     }
@@ -1631,18 +1748,27 @@ desktopRegionButtons.forEach(
     }
 );
 
+
 /* =========================================
    메인 배너 지역 검색
 ========================================= */
 
 const heroProvince =
-    document.getElementById("heroProvince");
+    document.getElementById(
+        "heroProvince"
+    );
+
 
 const heroCity =
-    document.getElementById("heroCity");
+    document.getElementById(
+        "heroCity"
+    );
+
 
 const heroRegionSearchButton =
-    document.getElementById("heroRegionSearchButton");
+    document.getElementById(
+        "heroRegionSearchButton"
+    );
 
 
 const heroRegionData = {
@@ -1669,110 +1795,140 @@ const heroRegionData = {
 };
 
 
-/* 광역시·도 선택 */
+/* =========================
+   광역시·도 선택
+========================= */
 
-heroProvince.addEventListener(
-    "change",
-    function () {
+if (
+    heroProvince &&
+    heroCity
+) {
 
-        const province =
-            heroProvince.value;
+    heroProvince.addEventListener(
+        "change",
+        function () {
 
-
-        /* 시·군 초기화 */
-
-        heroCity.innerHTML =
-            `<option value="">
-                시·군 선택
-            </option>`;
+            const province =
+                heroProvince.value;
 
 
-        if (!province) {
-            return;
+            heroCity.innerHTML =
+                `<option value="">
+                    시·군 선택
+                </option>`;
+
+
+            if (!province) {
+                return;
+            }
+
+
+            const cities =
+                heroRegionData[
+                    province
+                ];
+
+
+            if (!cities) {
+                return;
+            }
+
+
+            cities.forEach(
+                function (city) {
+
+                    const option =
+                        document.createElement(
+                            "option"
+                        );
+
+
+                    option.value =
+                        city;
+
+
+                    option.textContent =
+                        city;
+
+
+                    heroCity.appendChild(
+                        option
+                    );
+
+                }
+            );
+
         }
+    );
+
+}
 
 
-        const cities =
-            heroRegionData[province];
+/* =========================
+   찾아보기
+========================= */
+
+if (
+    heroRegionSearchButton &&
+    heroCity
+) {
+
+    heroRegionSearchButton.addEventListener(
+        "click",
+        function () {
+
+            const regionName =
+                heroCity.value;
 
 
-        cities.forEach(
-            function (city) {
+            if (!regionName) {
 
-                const option =
-                    document.createElement("option");
+                alert(
+                    "시·군을 선택해주세요."
+                );
 
-                option.value = city;
-                option.textContent = city;
-
-                heroCity.appendChild(option);
+                return;
 
             }
-        );
-
-    }
-);
 
 
-/* 찾아보기 */
-
-heroRegionSearchButton.addEventListener(
-    "click",
-    function () {
-
-        const regionName =
-            heroCity.value;
+            const targetTab =
+                document.querySelector(
+                    `.region-tab[data-region="${regionName}"]`
+                );
 
 
-        if (!regionName) {
+            if (targetTab) {
 
-            alert("시·군을 선택해주세요.");
-
-            return;
-        }
+                targetTab.click();
 
 
-        /*
-            기존 지역 버튼 찾기
-
-            기존 지도 기능을 새로 만들지 않고
-            현재 작동하는 지역 버튼을 대신 클릭
-        */
-
-        const regionButton =
-            document.querySelector(
-                `.region-tab[data-region="${regionName}"]`
-            );
+                const locationSection =
+                    document.getElementById(
+                        "location"
+                    );
 
 
-        if (regionButton) {
+                if (locationSection) {
 
-            regionButton.click();
+                    locationSection.scrollIntoView({
+
+                        behavior:
+                            "smooth",
+
+                        block:
+                            "start"
+
+                    });
+
+                }
+
+            }
 
         }
+    );
 
-
-        const regionSection =
-            document.querySelector(
-                ".region-section"
-            );
-
-        if (regionSection) {
-
-            const y =
-                regionSection.getBoundingClientRect().top +
-                window.scrollY -
-                110;
-
-            window.scrollTo({
-                top: y,
-                behavior: "smooth"
-            });
-
-        }
-
-    }
-);
+}
 
 /* =========================================
    메인 FAQ
@@ -1791,6 +1947,11 @@ faqSummaryItems.forEach(
             item.querySelector(
                 ".faq-summary-question"
             );
+
+
+        if (!question) {
+            return;
+        }
 
 
         question.addEventListener(
@@ -1828,29 +1989,48 @@ faqSummaryItems.forEach(
     }
 );
 
+
+/* =========================================
+   상세페이지 메뉴 이동
+========================================= */
+
 const detailMenuLinks =
-    document.querySelectorAll(".detail-menu-link");
+    document.querySelectorAll(
+        ".detail-menu-link"
+    );
 
-detailMenuLinks.forEach(function (link) {
 
-    link.addEventListener("click", function (e) {
+detailMenuLinks.forEach(
+    function (link) {
 
-        e.preventDefault();
+        link.addEventListener(
+            "click",
+            function (e) {
 
-        const currentRegion =
-            document.getElementById("headerRegionName")
-                ?.textContent
-                .trim() || "공주";
+                e.preventDefault();
 
-        const tab =
-            link.dataset.tab;
 
-        window.location.href =
-            `detail.html?region=${encodeURIComponent(currentRegion)}&tab=${encodeURIComponent(tab)}`;
+                const currentRegion =
+                    document.getElementById(
+                        "headerRegionName"
+                    )
+                        ?.textContent
+                        .trim() || "공주";
 
-    });
 
-});
+                const tab =
+                    link.dataset.tab;
+
+
+                window.location.href =
+                    `detail.html?region=${encodeURIComponent(currentRegion)}&tab=${encodeURIComponent(tab)}`;
+
+            }
+        );
+
+    }
+);
+
 
 /* =========================
    상단 지역 선택 드롭다운
@@ -1861,21 +2041,28 @@ const headerRegionButton =
         "headerRegionButton"
     );
 
+
 const headerRegionDropdown =
     document.getElementById(
         "headerRegionDropdown"
     );
+
 
 const headerRegionName =
     document.getElementById(
         "headerRegionName"
     );
 
+
 const headerRegionButtons =
     document.querySelectorAll(
         ".header-region-dropdown button"
     );
 
+
+/* =========================
+   지역 선택창 열기 / 닫기
+========================= */
 
 if (headerRegionButton) {
 
@@ -1884,6 +2071,7 @@ if (headerRegionButton) {
         function (event) {
 
             event.stopPropagation();
+
 
             headerRegionButton.classList.toggle(
                 "active"
@@ -1895,6 +2083,10 @@ if (headerRegionButton) {
 }
 
 
+/* =========================
+   상단에서 지역 선택
+========================= */
+
 headerRegionButtons.forEach(
     function (button) {
 
@@ -1904,23 +2096,42 @@ headerRegionButtons.forEach(
 
                 event.stopPropagation();
 
+
                 const selectedRegion =
                     button.dataset.region;
 
-                headerRegionName.textContent =
-                    selectedRegion;
 
-                headerRegionButton.classList.remove(
-                    "active"
-                );
+                if (headerRegionName) {
+
+                    headerRegionName.textContent =
+                        selectedRegion;
+
+                }
+
+
+                if (headerRegionButton) {
+
+                    headerRegionButton.classList.remove(
+                        "active"
+                    );
+
+                }
+
+
+                /*
+                    메인 지역 버튼도 같이 변경
+                */
 
                 const targetTab =
                     document.querySelector(
                         `.region-tab[data-region="${selectedRegion}"]`
                     );
 
+
                 if (targetTab) {
+
                     targetTab.click();
+
                 }
 
             }
@@ -1930,7 +2141,9 @@ headerRegionButtons.forEach(
 );
 
 
-/* 바깥 클릭 시 닫기 */
+/* =========================
+   지역 선택창 바깥 클릭 시 닫기
+========================= */
 
 document.addEventListener(
     "click",
