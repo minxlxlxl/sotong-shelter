@@ -4450,3 +4450,25 @@ a {
     }
 
 }
+
+/* PC에서는 햄버거 숨김 */
+.menu-button {
+    display: none;
+}
+
+/* 태블릿 / 모바일에서만 햄버거 표시 */
+@media (max-width: 768px) {
+    .menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+
+        .hero-region-search {
+            display: none;
+        }
+
+    }
+}
