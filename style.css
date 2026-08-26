@@ -4420,7 +4420,6 @@ a {
         flex-direction: column;
         align-items: stretch;
         gap: 14px;
-
         padding: 18px;
     }
 
@@ -4440,9 +4439,14 @@ a {
         width: 100%;
     }
 
-    .hero-region-search-form button {
+    #heroRegionSearchButton {
         width: 100%;
+
+        display: flex;
+        align-items: center;
         justify-content: center;
+
+        gap: 8px;
     }
 
 }
